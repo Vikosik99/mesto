@@ -8,19 +8,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  max-width: 1280px;
   min-width: 320px;
-}
-
-/*1350*
-
-@media screen and (min-width: 1350px) {
-  .page {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-  }
 }
 
 /*350*/
