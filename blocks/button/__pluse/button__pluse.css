@@ -1,0 +1,22 @@
+.button__pluse {
+  width: 150px;
+  height: 50px;
+  border: 2px #545454 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.button__pluse:hover {
+  opacity: 0.6;
+}
+
+/*685px*/
+
+@media screen and (max-width: 685px) {
+  .button__pluse {
+    width: 282px;
+  }
+}

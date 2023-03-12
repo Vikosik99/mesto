@@ -1,0 +1,11 @@
+.pluse {
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 685px) {
+  .pluse {
+    width: 16px;
+    height: 16px;
+  }
+}

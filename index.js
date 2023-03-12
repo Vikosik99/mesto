@@ -1,6 +1,5 @@
-let closeButton = document.querySelector('.close__button');
-let editButton = document.querySelector('.edit__button');
-let saveButton = document.querySelector('.save__button');
+let buttonClose = document.querySelector('.button__close');
+let buttonEdit = document.querySelector('.button__edit');
 let popup = document.querySelector('.popup');
 let formUsername = document.querySelector('.form__username');
 let formStatus = document.querySelector('.form__status')
@@ -9,11 +8,12 @@ let profileStatus = document.querySelector('.profile__status');
 
 
 
-editButton.addEventListener('click', function(){
+buttonEdit.addEventListener('click', function(){
     popup.classList.add('popup_opened');
 })
 
-closeButton.addEventListener('click', function(){
+
+buttonClose.addEventListener('click', function(){
     popup.classList.remove('popup_opened');
 })
 
@@ -22,19 +22,17 @@ function popupClick() {
     formStatus.value = profileStatus.textContent;
 }
 
-editButton.addEventListener('click', popupClick);
+buttonEdit.addEventListener('click', popupClick);
 
 
-document.querySelector('.save__button').onclick = saveClick;
+document.querySelector('.button__save').onclick = saveClick;
 
 function saveClick() {
-    let formUsername =document.querySelector('.form__username').value;
+    let formUsername = document.querySelector('.form__username').value;
     document.querySelector('.profile__username').innerHTML = formUsername;
 
-    let formStatus =document.querySelector('.form__status').value;
+    let formStatus = document.querySelector('.form__status').value;
    document.querySelector('.profile__status').innerHTML = formStatus;
-   
+
    popup.classList.remove('popup_opened');
 }
-
-

@@ -1,0 +1,16 @@
+.card {
+  display: flex;
+  max-height: 120px;
+  gap: 30px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/*685px*/
+
+@media screen and (max-width: 685px) {
+  .card {
+    flex-direction: column;
+    gap: 26px;
+  }
+}

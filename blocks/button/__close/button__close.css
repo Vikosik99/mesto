@@ -1,0 +1,35 @@
+.button__close {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  background: inherit;
+  cursor: pointer;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  box-sizing: border-box;
+}
+
+.button__close:hover {
+  opacity: 0.6;
+}
+
+/*525px*/
+
+@media screen and (max-width: 525px) {
+  .button__close {
+    width: 20px;
+    height: 20px;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+}

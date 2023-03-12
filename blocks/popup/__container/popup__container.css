@@ -1,0 +1,23 @@
+.popup__container {
+  width: 470px;
+  height: 370px;
+  display: grid;
+  gap: 8px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 18%;
+  box-sizing: border-box;
+}
+
+/*525px*/
+
+@media screen and (max-width: 525px) {
+  .popup__container {
+    height: 358px;
+    width: 282px;
+    gap: 16px 0;
+    justify-items: end;
+  }
+}
