@@ -1,4 +1,4 @@
-.button__edit {
+.edit-button {
   min-width: 24px;
   height: 24px;
   border: 1px #545454 solid;
@@ -13,14 +13,14 @@
   box-sizing: border-box;
 }
 
-.button__edit:hover {
+.edit-button:hover {
   opacity: 0.6;
 }
 
 /*685px*/
 
 @media screen and (max-width: 685px) {
-  .button__edit {
+  .edit-button {
     min-width: 18px;
     height: 18px;
   }
