@@ -1,4 +1,4 @@
-.pluse__button {
+.pluse-button {
   width: 150px;
   height: 50px;
   border: 2px #545454 solid;
@@ -9,14 +9,14 @@
   cursor: pointer;
 }
 
-.pluse__button:hover {
+.pluse-button:hover {
   opacity: 0.6;
 }
 
 /*685px*/
 
 @media screen and (max-width: 685px) {
-  .pluse__button {
+  .pluse-button {
     width: 282px;
   }
 }

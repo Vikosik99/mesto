@@ -1,4 +1,4 @@
-.close__button {
+.close-button {
   width: 32px;
   height: 32px;
   border: 0;
@@ -17,14 +17,14 @@
   box-sizing: border-box;
 }
 
-.close__button:hover {
+.close-button:hover {
   opacity: 0.6;
 }
 
 /*525px*/
 
 @media screen and (max-width: 525px) {
-  .close__button {
+  .close-button {
     width: 20px;
     height: 20px;
     grid-row-start: 1;

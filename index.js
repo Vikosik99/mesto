@@ -1,4 +1,4 @@
-let closeButton = document.querySelector('.close__button');
+let closeButton = document.querySelector('.close-button');
 let editButton = document.querySelector('.edit-button');
 let popup = document.querySelector('.popup');
 let formUsername = document.querySelector('.form__username');
