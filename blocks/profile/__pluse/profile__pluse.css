@@ -3,7 +3,10 @@
   height: 22px;
   box-sizing: border-box;
 }
-@media screen and (max-width: 685px) {
+
+/*700px*/
+
+@media screen and (max-width: 700px) {
   .profile__pluse {
     width: 16px;
     height: 16px;

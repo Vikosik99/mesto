@@ -11,6 +11,9 @@
   width: 358px;
   box-sizing: border-box;
 }
+
+/*525px*/
+
 @media screen and (max-width: 525px) {
   .form__caption {
     font-size: 18px;
