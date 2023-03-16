@@ -7,7 +7,7 @@
   color: #000000;
   margin: 0;
   padding: 0;
-  margin-bottom: 47px;
+  margin-bottom: 18px;
   width: 358px;
   box-sizing: border-box;
 }
@@ -15,8 +15,7 @@
   .form__caption {
     font-size: 18px;
     line-height: 22px;
-    margin-bottom: 75px;
-    margin-top: 25px;
+    margin-bottom: 45px;
     width: 238px;
   }
 }

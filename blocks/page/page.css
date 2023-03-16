@@ -16,5 +16,6 @@
 @media screen and (max-width: 350px) {
   .page {
     padding-top: 28px;
+  padding-bottom: 36px;
   }
 }

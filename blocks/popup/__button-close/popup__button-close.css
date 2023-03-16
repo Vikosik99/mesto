@@ -9,13 +9,62 @@
   background: inherit;
   cursor: pointer;
   box-sizing: border-box;
-  right: 178px;
-    top: 120px;
+  left: 863px;
+  top: 155px;
 }
 
 
 .popup__button-close:hover {
   opacity: 0.6;
+}
+
+
+@media screen and (max-width: 1230px) {
+  .popup__button-close {
+    left: 823px;
+}
+}
+
+@media screen and (max-width: 1150px) {
+  .popup__button-close {
+    left: 793px;
+}
+}
+
+@media screen and (max-width: 1090px) {
+  .popup__button-close {
+    left: 753px;
+}
+}
+
+@media screen and (max-width: 1010px) {
+  .popup__button-close {
+    left: 713px;
+}
+}
+
+@media screen and (max-width: 930px) {
+  .popup__button-close {
+    left: 683px;
+}
+}
+
+@media screen and (max-width: 830px) {
+  .popup__button-close {
+    left: 583px;
+}
+}
+
+@media screen and (max-width: 650px) {
+  .popup__button-close {
+    left: 483px;
+}
+}
+
+@media screen and (max-width: 540px) {
+  .popup__button-close {
+    left: 450px;
+}
 }
 
 /*525px*/
@@ -24,5 +73,31 @@
   .popup__button-close {
     width: 20px;
     height: 20px;
-  }
+    left: 380px;
+    top: 159px;
+}
+}
+
+@media screen and (max-width: 430px) {
+  .popup__button-close {
+    left: 380px;
+}
+}
+
+@media screen and (max-width: 420px) {
+  .popup__button-close {
+    left: 350px;
+}
+}
+
+@media screen and (max-width: 390px) {
+  .popup__button-close {
+    left: 300px;
+}
+}
+
+@media screen and (max-width: 350px) {
+  .popup__button-close {
+    left: 281px;
+}
 }
