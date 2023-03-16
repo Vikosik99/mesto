@@ -2,17 +2,9 @@
   margin: 0;
   padding: 0;
   padding-top: 35px;
-  width: 430px;
-  height: 330px;
-  background: #ffffff;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
   box-sizing: border-box;
 }
 
@@ -21,10 +13,7 @@
 @media screen and (max-width: 525px) {
   .form {
     width: 282px;
-    height: 322px;
     padding-top: 0;
     justify-content: flex-start;
-    grid-column-start: 1;
-    grid-column-end: 1;
   }
 }

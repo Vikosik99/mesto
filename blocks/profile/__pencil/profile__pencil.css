@@ -1,4 +1,4 @@
-.pencil {
+.profile__pencil {
   width: 10px;
   height: 10px;
   box-sizing: border-box;
@@ -7,7 +7,7 @@
 /*685px*/
 
 @media screen and (max-width: 685px) {
-  .pencil {
+  .profile__pencil {
     width: 7.5px;
     height: 7.5px;
   }

@@ -1,7 +1,8 @@
-.pluse-button {
+.profile__button-pluse {
   width: 150px;
   height: 50px;
-  border: 2px #545454 solid;
+  border: 2px #FFFFFF solid;
+  border-radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,14 +10,14 @@
   cursor: pointer;
 }
 
-.pluse-button:hover {
+.profile__button-pluse:hover {
   opacity: 0.6;
 }
 
 /*685px*/
 
 @media screen and (max-width: 685px) {
-  .pluse-button {
+  .profile__button-pluse {
     width: 282px;
   }
 }

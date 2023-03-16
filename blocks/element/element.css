@@ -1,7 +1,8 @@
 .element {
-  max-width: 282px;
-  max-height: 361px;
+  width: 282px;
   background: #ffffff;
   border-radius: 10px;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }

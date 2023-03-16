@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./pages/index.css" rel="stylesheet">
-    <link href="./style.css" rel="stylesheet">
     <title>Mesto</title>
   </head>
   <body class="page">
@@ -14,31 +13,31 @@
         alt="логотип">
     </header>
     <main class="content">
-      <section class="popup">
+      <div class="popup">
+        <button type="button" class="popup__button-close">
+          <img class="popup__close" 
+            src="./Image/Icon-Close.svg"
+            alt="крест">
+        </button>
         <div class="popup__container">
-          <button type="button" class="close-button">
-            <img class="close" 
-              src="./Image/Icon-Close.svg"
-              alt="крест">
-          </button>
-          <form class="form">
+          <form class="form" name="form">
             <h2 class="form__caption">Редактировать профиль</h2>
-            <input type="text" name="username" class="form__username" placeholder="Имя" required>
-            <input type="text" name="status" class="form__status" placeholder="О себе" required>
-            <button type="button" class="save-button">Сохранить</button>
+            <input type="text" name="username" class="form__input form__input_kye_username" placeholder="Имя" required>
+            <input type="text" name="status" class="form__input form__input_kye_status" placeholder="О себе" required>
+            <button type="submit" class="form__button-save">Сохранить</button>
           </form>
         </div>
-      </section>
+      </div>
       <section class="profile">
-        <div class="card">
-          <img class="avatar"
+        <div class="profile__card">
+          <img class="profile__avatar"
             src="./Image/Image-avatar.jpg"
             alt="аватар">
           <div class="profile__info">
             <div class="profile__flex">
-              <h2 class="profile__username">Жак-Ив Кусто</h2>
-              <button class="edit-button">
-                <img class="pencil"
+              <h1 class="profile__username">Жак-Ив Кусто</h1>
+              <button class="profile__button-edit">
+                <img class="profile__pencil"
                   src="./Image/Vector-pencil.svg"
                   alt="ручка">
               </button>
@@ -46,8 +45,8 @@
             <p class="profile__status">Исследователь океана</p>
           </div>
         </div>
-        <div class="pluse-button">
-          <img class="pluse"
+        <div class="profile__button-pluse">
+          <img class="profile__pluse"
             src="./Image/Vector-plus.svg"
             alt="плюс">
         </div>
@@ -58,10 +57,8 @@
             src="./Image/Image-card-Archiz.jpeg"
             alt="Архыз">
           <div class="element__mesto">
-            <p class="text">Архыз</p>
-            <img class="like like-active"
-              src="./Image/Vector-like.svg"
-              alt="лайк">
+            <h2 class="element__text">Архыз</h2>
+            <button type="button" class="element__like element__like_active"></button>
           </div>
         </div>
         <div class="element">
@@ -69,10 +66,8 @@
             src="./Image/Image-card-Tiberda.jpeg"
             alt="Тиберда">
           <div class="element__mesto">
-            <p class="text">Тиберда</p>
-            <img class="like like-active"
-              src="./Image/Vector-like.svg"
-              alt="лайк">
+            <h2 class="element__text">Тиберда</h2>
+            <button type="button" class="element__like element__like_active"></button>
           </div>
         </div>
         <div class="element">
@@ -80,10 +75,8 @@
             src="./Image/Image-card-Dombay-l.jpeg"
             alt="Домбай">
           <div class="element__mesto">
-            <p class="text">Домбай</p>
-            <img class="like like-active"
-              src="./Image/Vector-like.svg"
-              alt="лайк">
+            <h2 class="element__text">Домбай</h2>
+            <button type="button" class="element__like element__like_active"></button>
           </div>
         </div>
         <div class="element">
@@ -91,10 +84,8 @@
             src="./Image/Image-card-Krasnodar.jpeg"
             alt="Краснодар">
           <div class="element__mesto">
-            <p class="text">Краснодар</p>
-            <img class="like like-active"
-              src="./Image/Vector-like.svg"
-              alt="лайк">
+            <h2 class="element__text">Краснодар</h2>
+            <button type="button" class="element__like element__like_active"></button>
           </div>
         </div>
         <div class="element">
@@ -102,10 +93,8 @@
             src="./Image/Image-card-Dombay-z.jpeg"
             alt="Домбай зимой">
           <div class="element__mesto">
-            <p class="text">Домбай</p>
-            <img class="like like-active"
-              src="./Image/Vector-like.svg"
-              alt="лайк">
+            <h2 class="element__text">Домбай</h2>
+            <button type="button" class="element__like element__like_active"></button>
           </div>
         </div>
         <div class="element">
@@ -113,10 +102,8 @@
             src="./Image/Image-card-Yalta.jpeg"
             alt="Ялта">
           <div class="element__mesto">
-            <p class="text">Ялта</p>
-            <img class="like like-active"
-              src="./Image/Vector-like.svg"
-              alt="лайк">
+            <h2 class="element__text">Ялта</h2>
+            <button type="button" class="element__like element__like_active"></button>
           </div>
         </div>
       </section>

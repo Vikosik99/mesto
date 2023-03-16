@@ -1,9 +1,9 @@
 .header {
-  height: 74px;
-  border-bottom: 1px #545454 solid;
+  border-bottom: 1px rgb(84, 84, 84, 70%) solid;
   margin-bottom: 40px;
   width: 880px;
   box-sizing: border-box;
+  padding-bottom: 36px;
 }
 
 /*930px*/
@@ -18,7 +18,6 @@
 
 @media screen and (max-width: 525px) {
   .header {
-    height: 56px;
     margin-bottom: 39px;
   }
 }
