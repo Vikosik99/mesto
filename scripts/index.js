@@ -1,3 +1,4 @@
+// Попап редактирование ника и статуса
 // Задаем переменные
 
 let popupButtonClose = document.querySelector('.popup__button-close');
@@ -40,3 +41,62 @@ popupButtonClose.addEventListener('click', popupClose)
 // Отправка формы
 
 form.addEventListener('submit', saveClick);
+
+
+
+// Добавление карточек изначально
+
+const initialCards = [
+    {
+      name: 'Архыз',
+      link: './images/image-card-archiz.jpeg"'
+    },
+    {
+      name: 'Тиберда',
+      link: './images/image-card-tiberda.jpeg'
+    },
+    {
+      name: 'Домбай',
+      link: './images/image-card-dombay-l.jpeg'
+    },
+    {
+      name: 'Краснодар',
+      link: './images/image-card-krasnodar.jpeg'
+    },
+    {
+      name: 'Домбай зимой',
+      link: './images/image-card-dombay-z.jpeg'
+    },
+    {
+      name: 'Ялта',
+      link: './images/image-card-yalta.jpeg'
+    }
+  ];
+
+
+//Попап для добавления карточек
+//Объявление переменных
+let popupAdd = document.querySelector('.popup-add');
+let profileButtonPluse = document.querySelector('.profile__button-pluse');
+let popupAddButtonClose = document.querySelector('.popup-add__button-close');
+
+//Объевление функций
+
+function popupAddClick() {
+    popupAdd.classList.add('popup-add_opened');
+}
+
+function popupAddClose() {
+    popupAdd.classList.toggle('popup-add_opened'); 
+}
+
+//Вызов функций открытия и закрытия попапа
+
+profileButtonPluse.addEventListener('click', popupAddClick); 
+popupAddButtonClose.addEventListener('click', popupAddClose);
+
+//Лайк карточки
+
+//Удаление карточки
+
+//Открытие попапа картинок 

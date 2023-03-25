@@ -36,6 +36,7 @@
       </section>
       <section class="elements">
         <article class="element">
+          <button type="button" class="element__delete"></button>
           <img class="element__img"
             src="./images/image-card-archiz.jpeg"
             alt="Архыз">
@@ -45,6 +46,7 @@
           </div>
         </article>
         <article class="element">
+          <button type="button" class="element__delete"></button>
           <img class="element__img"
             src="./images/image-card-tiberda.jpeg"
             alt="Тиберда">
@@ -54,6 +56,7 @@
           </div>
         </article>
         <article class="element">
+          <button type="button" class="element__delete"></button>
           <img class="element__img"
             src="./images/image-card-dombay-l.jpeg"
             alt="Домбай">
@@ -63,6 +66,7 @@
           </div>
         </article>
         <article class="element">
+          <button type="button" class="element__delete"></button>
           <img class="element__img"
             src="./images/image-card-krasnodar.jpeg"
             alt="Краснодар">
@@ -72,6 +76,7 @@
           </div>
         </article>
         <article class="element">
+          <button type="button" class="element__delete"></button>
           <img class="element__img"
             src="./images/image-card-dombay-z.jpeg"
             alt="Домбай зимой">
@@ -81,6 +86,7 @@
           </div>
         </article>
         <article class="element">
+          <button type="button" class="element__delete"></button>
           <img class="element__img"
             src="./images/image-card-yalta.jpeg"
             alt="Ялта">
@@ -100,6 +106,19 @@
             <input type="text" name="username" class="form__input form__input_kye_username" placeholder="Имя" required>
             <input type="text" name="status" class="form__input form__input_kye_status" placeholder="О себе" required>
             <button type="submit" class="form__button-save">Сохранить</button>
+          </form>
+        </div>
+      </div>
+      <div class="popup-add">
+        <div class="popup-add__container">
+          <button type="button" class="popup-add__button-close">
+            <img class="popup-add__close" src="./images/icon-close.svg" alt="крест">
+          </button>
+          <form class="form-add" name="form-add-popup">
+            <h2 class="form-add__caption">Новое место</h2>
+            <input type="text" name="placename" class="form__input form__input_kye_placename" placeholder="Название" required>
+            <input type="text" name="placelink" class="form__input form__input_kye_placelink" placeholder="Ссылка на картинку" required>
+            <button type="submit" class="form__button-save">Создать</button>
           </form>
         </div>
       </div>
