@@ -49,7 +49,7 @@ form.addEventListener('submit', saveClick);
 const initialCards = [
     {
       name: 'Архыз',
-      link: './images/image-card-archiz.jpeg"'
+      link: './images/image-card-archiz.jpeg'
     },
     {
       name: 'Тиберда',
@@ -73,8 +73,26 @@ const initialCards = [
     }
   ];
 
+  const elements = document.querySelector('.elements')
+
+initialCards.forEach(function(card){
+    const cardHTML = `<article class="element">
+    <button type="button" class="element__delete"></button>
+    <img class="element__img"
+      src="${card.link}"
+      alt="Архыз">
+    <div class="element__mesto">
+      <h2 class="element__text">${card.name}</h2>
+      <button type="button" class="element__like element__like_active"></button>
+    </div>
+  </article>`
+
+    elements.insertAdjacentHTML("beforeend", cardHTML)
+})
+
 
 //Попап для добавления карточек
+
 //Объявление переменных
 let popupAdd = document.querySelector('.popup-add');
 let profileButtonPluse = document.querySelector('.profile__button-pluse');
@@ -96,6 +114,18 @@ profileButtonPluse.addEventListener('click', popupAddClick);
 popupAddButtonClose.addEventListener('click', popupAddClose);
 
 //Лайк карточки
+
+const element = document.querySelector('.element');
+const elementLike = document.querySelector('.element__like');
+const elementLikeActive = document.querySelector('.element__like_active');
+
+
+element.querySelector('.element__like').addEventListener('click', function (event) {
+    event.target.classList.toggle('element__like_active');
+      });
+
+
+    //Нужно доделать для всех карточек через ForEach
 
 //Удаление карточки
 
