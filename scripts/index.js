@@ -49,46 +49,51 @@ form.addEventListener('submit', saveClick);
 const initialCards = [
     {
       name: 'Архыз',
-      link: './images/image-card-archiz.jpeg'
+      link: './images/image-card-archiz.jpeg',
+      alt: 'Фотография гор Архыза' 
     },
     {
       name: 'Тиберда',
-      link: './images/image-card-tiberda.jpeg'
+      link: './images/image-card-tiberda.jpeg',
+      alt: 'Фотография девушки на фоне реки и гор в Тиберде' 
     },
     {
       name: 'Домбай',
-      link: './images/image-card-dombay-l.jpeg'
+      link: './images/image-card-dombay-l.jpeg',
+      alt: 'Фотография девушки смотрящей на горы в Домбае' 
     },
     {
       name: 'Краснодар',
-      link: './images/image-card-krasnodar.jpeg'
+      link: './images/image-card-krasnodar.jpeg',
+      alt: 'Фотография девушки на фоне парка Галицкого в Краснодаре' 
     },
     {
       name: 'Домбай зимой',
-      link: './images/image-card-dombay-z.jpeg'
+      link: './images/image-card-dombay-z.jpeg',
+      alt: 'Фотография девушки на сноуборде на фоне снежных гор в Домбае' 
     },
     {
       name: 'Ялта',
-      link: './images/image-card-yalta.jpeg'
+      link: './images/image-card-yalta.jpeg',
+      alt: 'Фотография девушки на фоне гор и моря в Ялте' 
     }
   ];
 
-  const elements = document.querySelector('.elements')
+   const elements = document.querySelector('.elements')
 
-initialCards.forEach(function(card){
-    const cardHTML = `<article class="element">
-    <button type="button" class="element__delete"></button>
-    <img class="element__img"
-      src="${card.link}"
-      alt="Архыз">
-    <div class="element__mesto">
-      <h2 class="element__text">${card.name}</h2>
-      <button type="button" class="element__like element__like_active"></button>
-    </div>
-  </article>`
 
-    elements.insertAdjacentHTML("beforeend", cardHTML)
-})
+  initialCards.forEach(function(card){
+    const cardTemplete = document.querySelector('#cardTemplete').content.cloneNode(true)
+   
+    const elementImg = cardTemplete.querySelector('.element__img')
+    elementImg.setAttribute('src', card.link)
+    elementImg.setAttribute('alt', card.alt)
+    
+    const elementText = cardTemplete.querySelector('.element__text')
+    elementText.textContent = card.name
+
+    elements.append(cardTemplete)
+  })
 
 
 //Попап для добавления карточек
@@ -123,8 +128,6 @@ const elementLikeActive = document.querySelector('.element__like_active');
 element.querySelector('.element__like').addEventListener('click', function (event) {
     event.target.classList.toggle('element__like_active');
       });
-
-
     //Нужно доделать для всех карточек через ForEach
 
 //Удаление карточки
