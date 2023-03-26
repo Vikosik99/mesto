@@ -45,7 +45,7 @@ form.addEventListener('submit', saveClick);
 
 
 // Добавление карточек изначально
-
+//Массив
 const initialCards = [
     {
       name: 'Архыз',
@@ -78,11 +78,10 @@ const initialCards = [
       alt: 'Фотография девушки на фоне гор и моря в Ялте' 
     }
   ];
-
+//Реализуем передачу данных из массива 
    const elements = document.querySelector('.elements')
-
-
-  initialCards.forEach(function(card){
+//Создаем функцию добавления карточек из массива
+  function createCard(card) {
     const cardTemplete = document.querySelector('#cardTemplete').content.cloneNode(true)
    
     const elementImg = cardTemplete.querySelector('.element__img')
@@ -91,11 +90,20 @@ const initialCards = [
     
     const elementText = cardTemplete.querySelector('.element__text')
     elementText.textContent = card.name
+    //Реализуем удаление карточки 
+    const deleteElementButton = cardTemplete.querySelector('.element__delete')
+    deleteElementButton.addEventListener('click', deleteCardCick) //Реализуем удаление карточки по клику
 
-    elements.append(cardTemplete)
-  })
+    elements.append(cardTemplete)  //Добавление карточек 
+  }
+  initialCards.forEach(createCard) //Реализация проходки по всему массиву данных и их выводу
 
-
+  //Создаем функцию удаления карточек
+function deleteCardCick(event){
+    const buttonDelete = event.target
+    const element = buttonDelete.closest('.element')
+    element.remove()
+}
 //Попап для добавления карточек
 
 //Объявление переменных
@@ -125,9 +133,15 @@ const elementLike = document.querySelector('.element__like');
 const elementLikeActive = document.querySelector('.element__like_active');
 
 
-element.querySelector('.element__like').addEventListener('click', function (event) {
+const addLike = element.querySelector('.element__like');
+addLike.addEventListener('click', likeActiveClick)
+
+function likeActiveClick(event) {
     event.target.classList.toggle('element__like_active');
-      });
+}
+
+
+
     //Нужно доделать для всех карточек через ForEach
 
 //Удаление карточки
