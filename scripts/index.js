@@ -1,4 +1,4 @@
-// Попап редактирование ника и статуса
+                    // Попап редактирование ника и статуса
 // Задаем переменные
 
 let popupButtonClose = document.querySelector('.popup__button-close');
@@ -44,7 +44,7 @@ form.addEventListener('submit', saveClick);
 
 
 
-// Добавление карточек изначально
+                        // Добавление карточек изначально
 //Массив
 const initialCards = [
     {
@@ -98,13 +98,14 @@ const initialCards = [
   }
   initialCards.forEach(createCard) //Реализация проходки по всему массиву данных и их выводу
 
-  //Создаем функцию удаления карточек
+
+                 //Создаем функцию удаления карточек
 function deleteCardCick(event){
     const buttonDelete = event.target
     const element = buttonDelete.closest('.element')
     element.remove()
 }
-//Попап для добавления карточек
+                //Попап для добавления карточек
 
 //Объявление переменных
 let popupAdd = document.querySelector('.popup-add');
@@ -121,12 +122,26 @@ function popupAddClose() {
     popupAdd.classList.toggle('popup-add_opened'); 
 }
 
-//Вызов функций открытия и закрытия попапа
+            //Вызов функций открытия и закрытия попапа
 
 profileButtonPluse.addEventListener('click', popupAddClick); 
 popupAddButtonClose.addEventListener('click', popupAddClose);
 
-//Лайк карточки
+                    // Реализуем отправку изменений из попапа в профиль
+
+    const formAdd = document.querySelector('.form-add')
+    formAdd.addEventListener('submit', createClick)
+
+    function createClick(event){
+        event.preventDefault();
+        const formInputKyePlacename = formAdd.querySelector('.form__input_kye_placename').value
+        const formInputKyePlacelink = formAdd.querySelector('.form__input_kye_placelink').value
+        const cards = { name: formInputKyePlacename, 
+        link: formInputKyePlacelink}
+        createCard(cards)
+        popupAddClose()
+    }
+                    //Лайк карточки
 
 const element = document.querySelector('.element');
 const elementLike = document.querySelector('.element__like');
@@ -144,6 +159,5 @@ function likeActiveClick(event) {
 
     //Нужно доделать для всех карточек через ForEach
 
-//Удаление карточки
 
-//Открытие попапа картинок 
+                    //Открытие попапа картинок 
