@@ -44,7 +44,7 @@ form.addEventListener('submit', saveClick);
 
 
 
-                        // Добавление карточек изначально
+                    // Добавление карточек изначально
 //Массив
 const initialCards = [
     {
@@ -78,10 +78,14 @@ const initialCards = [
       alt: 'Фотография девушки на фоне гор и моря в Ялте' 
     }
   ];
+
 //Реализуем передачу данных из массива 
-   const elements = document.querySelector('.elements')
+
+const elements = document.querySelector('.elements')
+
 //Создаем функцию добавления карточек из массива
-  function createCard(card) {
+
+function createCard(card) {
     const cardTemplete = document.querySelector('#cardTemplete').content.cloneNode(true)
    
     const elementImg = cardTemplete.querySelector('.element__img')
@@ -90,24 +94,32 @@ const initialCards = [
     
     const elementText = cardTemplete.querySelector('.element__text')
     elementText.textContent = card.name
+
     //Реализуем удаление карточки 
+    
     const deleteElementButton = cardTemplete.querySelector('.element__delete')
     deleteElementButton.addEventListener('click', deleteCardCick) //Реализуем удаление карточки по клику
 
-    elements.append(cardTemplete)  //Добавление карточек 
-  }
-  initialCards.forEach(createCard) //Реализация проходки по всему массиву данных и их выводу
+    return cardTemplete;
+}
 
+initialCards.forEach(card => {
+    const newCard = createCard(card)
+    elements.append(newCard)
+})
+   //Реализация проходки по всему массиву данных и их выводу
 
                  //Создаем функцию удаления карточек
+
 function deleteCardCick(event){
     const buttonDelete = event.target
     const element = buttonDelete.closest('.element')
     element.remove()
 }
-                //Попап для добавления карточек
+                    //Попап для добавления карточек
 
 //Объявление переменных
+
 let popupAdd = document.querySelector('.popup-add');
 let profileButtonPluse = document.querySelector('.profile__button-pluse');
 let popupAddButtonClose = document.querySelector('.popup-add__button-close');
@@ -122,26 +134,27 @@ function popupAddClose() {
     popupAdd.classList.toggle('popup-add_opened'); 
 }
 
-            //Вызов функций открытия и закрытия попапа
+//Вызов функций открытия и закрытия попапа
 
 profileButtonPluse.addEventListener('click', popupAddClick); 
 popupAddButtonClose.addEventListener('click', popupAddClose);
 
-                    // Реализуем отправку изменений из попапа в профиль
+                  // Реализуем отправку изменений из попапа в профиль
 
-    const formAdd = document.querySelector('.form-add')
-    formAdd.addEventListener('submit', createClick)
+const formAdd = document.querySelector('.form-add')
+formAdd.addEventListener('submit', createClick)
 
-    function createClick(event){
-        event.preventDefault();
-        const formInputKyePlacename = formAdd.querySelector('.form__input_kye_placename').value
-        const formInputKyePlacelink = formAdd.querySelector('.form__input_kye_placelink').value
-        const cards = { name: formInputKyePlacename, 
-        link: formInputKyePlacelink}
-        createCard(cards)  //Добавление карточек 
-        popupAddClose()
-    }
-                    //Лайк карточки
+function createClick(event){
+    event.preventDefault();
+    const formInputKyePlacename = formAdd.querySelector('.form__input_kye_placename').value
+    const formInputKyePlacelink = formAdd.querySelector('.form__input_kye_placelink').value
+    const cards = { name: formInputKyePlacename, 
+    link: formInputKyePlacelink}
+    createCard(cards)  //Добавление карточек 
+    popupAddClose()
+}
+
+                      //Лайк карточки
 
 const element = document.querySelector('.element');
 const elementLike = document.querySelector('.element__like');
@@ -154,11 +167,7 @@ addLike.addEventListener('click', likeActiveClick)
 function likeActiveClick(event) {
     event.target.classList.toggle('element__like_active');
 }
-
-
-
-
-    //Нужно доделать для всех карточек через ForEach
+//Нужно доделать для всех карточек через ForEach
 
 
                     //Открытие попапа картинок 
