@@ -9,3 +9,13 @@
     z-index: 1;
     box-sizing: border-box;
   }
+
+  .popup-add > .popup-add__container {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+  }
+  .popup-add:hover > .popup-add__container {
+    visibility: visible;
+    opacity: 1;
+  }

@@ -138,7 +138,7 @@ popupAddButtonClose.addEventListener('click', popupAddClose);
         const formInputKyePlacelink = formAdd.querySelector('.form__input_kye_placelink').value
         const cards = { name: formInputKyePlacename, 
         link: formInputKyePlacelink}
-        createCard(cards)
+        createCard(cards)  //Добавление карточек 
         popupAddClose()
     }
                     //Лайк карточки
@@ -154,6 +154,7 @@ addLike.addEventListener('click', likeActiveClick)
 function likeActiveClick(event) {
     event.target.classList.toggle('element__like_active');
 }
+
 
 
 
