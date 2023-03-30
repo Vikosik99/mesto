@@ -99,16 +99,22 @@ function createCard(card) {
     
     const deleteElementButton = cardTemplete.querySelector('.element__delete')
     deleteElementButton.addEventListener('click', deleteCardCick) //Реализуем удаление карточки по клику
-
+   
+    //Реализуем лайк карточки
+    
+    const addLike = cardTemplete.querySelector('.element__like');
+    addLike.addEventListener('click', (event) => {
+      event.target.classList.toggle('element__like_active');
+    })
+    
     return cardTemplete;
 }
-
+  //Реализация проходки по всему массиву данных и их выводу
 initialCards.forEach(card => {
     const newCard = createCard(card)
     elements.append(newCard)
 })
-   //Реализация проходки по всему массиву данных и их выводу
-
+ 
                  //Создаем функцию удаления карточек
 
 function deleteCardCick(event){
@@ -124,7 +130,7 @@ let popupAdd = document.querySelector('.popup-add');
 let profileButtonPluse = document.querySelector('.profile__button-pluse');
 let popupAddButtonClose = document.querySelector('.popup-add__button-close');
 
-//Объевление функций
+//Объявление функций
 
 function popupAddClick() {
     popupAdd.classList.add('popup-add_opened');
@@ -155,27 +161,6 @@ function createClick(event){
     elements.prepend(card)
     popupAddClose()
 }
-
-                      //Лайк карточки
-
-const element = document.querySelector('.element');
-const elementLike = document.querySelector('.element__like');
-const elementLikeActive = document.querySelector('.element__like_active');
-
-
-const addLike = element.querySelector('.element__like');
-addLike.addEventListener('click', (event) => {
-  event.target.classList.toggle('element__like_active');
-})
-
-function likeActiveClick() {
-    initialCards.forEach(arrayE1 => addCardContent(arrayE1));
-}
-
-
-
-//Нужно доделать для всех карточек через ForEach
-
 
                     //Открытие попапа картинок 
 const popupOpenSize = document.querySelector('.popup-open-size');
