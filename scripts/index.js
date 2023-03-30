@@ -44,7 +44,7 @@ form.addEventListener('submit', saveClick);
 
 
 
-                    // Добавление карточек изначально
+// Добавление карточек изначально
 //Массив
 const initialCards = [
     {
@@ -82,11 +82,13 @@ const initialCards = [
 //Реализуем передачу данных из массива 
 
 const elements = document.querySelector('.elements')
- //Открытие попапа картинок 
- const popupOpenSize = document.querySelector('.popup-open-size');
- const popupOpenSizeContainer = popupOpenSize.querySelector('.popup-open-size__container');
- const popupElementImg = popupOpenSize.querySelector('.popup-open-size__element-img');
- const popupElementText = popupOpenSize.querySelector('.popup-open-size__element-text');
+
+//Открытие попапа картинок 
+
+const popupOpenSize = document.querySelector('.popup-open-size');
+const popupOpenSizeContainer = popupOpenSize.querySelector('.popup-open-size__container');
+const popupElementImg = popupOpenSize.querySelector('.popup-open-size__element-img');
+const popupElementText = popupOpenSize.querySelector('.popup-open-size__element-text');
      
 //Создаем функцию добавления карточек из массива
 
@@ -113,6 +115,7 @@ function createCard(card) {
     })
 
    // Реализуем попап открытия картинки
+
     elementImg.addEventListener('click', () => {
     popupElementImg.src = card.link;
     popupElementText.textContent = card.name;
@@ -123,25 +126,29 @@ function createCard(card) {
 
     return cardTemplete;
 }
-  //Реализация проходки по всему массиву данных и их выводу
+
+//Реализация проходки по всему массиву данных и их выводу
+
 initialCards.forEach(card => {
     const newCard = createCard(card)
     elements.append(newCard)
 })
 
 //Создаем функцию удаления попапа с картинкой
+
 function popupOpenSizeClose() {
   popupOpenSize.classList.toggle('popup-open-size_opened'); 
 }
 
-                 //Создаем функцию удаления карточек
+//Создаем функцию удаления карточек
 
 function deleteCardCick(event){
     const buttonDelete = event.target
     const element = buttonDelete.closest('.element')
     element.remove()
 }
-                    //Попап для добавления карточек
+
+//Попап для добавления карточек
 
 //Объявление переменных
 
@@ -164,11 +171,10 @@ function popupAddClose() {
 profileButtonPluse.addEventListener('click', popupAddClick); 
 popupAddButtonClose.addEventListener('click', popupAddClose);
 
-                  // Реализуем отправку изменений из попапа в профиль
+// Реализуем отправку изменений из попапа в профиль
 
 const formAdd = document.querySelector('.form-add')
 formAdd.addEventListener('submit', createClick)
-
 
 function createClick(event){
     event.preventDefault();
