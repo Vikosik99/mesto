@@ -82,7 +82,12 @@ const initialCards = [
 //Реализуем передачу данных из массива 
 
 const elements = document.querySelector('.elements')
-
+ //Открытие попапа картинок 
+ const popupOpenSize = document.querySelector('.popup-open-size');
+ const popupOpenSizeContainer = popupOpenSize.querySelector('.popup-open-size__container');
+ const popupElementImg = popupOpenSize.querySelector('.popup-open-size__element-img');
+ const popupElementText = popupOpenSize.querySelector('.popup-open-size__element-text');
+     
 //Создаем функцию добавления карточек из массива
 
 function createCard(card) {
@@ -106,7 +111,16 @@ function createCard(card) {
     addLike.addEventListener('click', (event) => {
       event.target.classList.toggle('element__like_active');
     })
-    
+
+   // Реализуем попап открытия картинки
+    elementImg.addEventListener('click', () => {
+    popupElementImg.src = card.link;
+    popupElementText.textContent = card.name;
+    popupOpenSize.classList.add('popup-open-size_opened');
+    const popupOpenSizeButtonClose = popupOpenSize.querySelector('.popup-open-size__button-close')
+    popupOpenSizeButtonClose.addEventListener('click', popupOpenSizeClose)
+  });
+
     return cardTemplete;
 }
   //Реализация проходки по всему массиву данных и их выводу
@@ -114,7 +128,12 @@ initialCards.forEach(card => {
     const newCard = createCard(card)
     elements.append(newCard)
 })
- 
+
+//Создаем функцию удаления попапа с картинкой
+function popupOpenSizeClose() {
+  popupOpenSize.classList.toggle('popup-open-size_opened'); 
+}
+
                  //Создаем функцию удаления карточек
 
 function deleteCardCick(event){
@@ -160,16 +179,4 @@ function createClick(event){
     const card = createCard(newCard)
     elements.prepend(card)
     popupAddClose()
-}
-
-                    //Открытие попапа картинок 
-const popupOpenSize = document.querySelector('.popup-open-size');
-const popupOpenSizeContainer = document.querySelector('.popup-open-size__container');
-const popupElementImg = document.querySelector('.popup__element-img');
-const popupElementText = document.querySelector('.popup__element-text');
-
-popupElementImg.onclick = function() {
-  popupOpenSize.style.display = "block";
-  popupElementImg.link = this.link;
-  popupElementText.innerHTML = this.name;
 }

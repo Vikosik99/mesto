@@ -1,24 +1,12 @@
-.popup-add__container {
+.popup-open-size__container {
   margin: auto;
   padding: 0;
-  background: #ffffff;
-  border-radius: 10px;
   display: grid;
   gap: 8px;
   position: relative;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  width: 430px;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-}
-
-/*525px*/
-
-@media screen and (max-width: 525px) {
-  .popup-add__container {
-    gap: 16px 0;
-    justify-items: end;
-    width: 282px;
-  }
+  z-index: 1;
+  align-content: center;
 }

@@ -47,7 +47,10 @@
 @import url(../blocks/form-add/__input/_kye/form-add__input_kye_placelink.css.css);
 @import url(../blocks/form-add/__input/_kye/form-add__input_kye_placename.css.css);
 @import url(../blocks/element/__delete/element__delete.css);
-
-
-
-
+@import url(../blocks/popup-open-size/popup-open-size.css);
+@import url(../blocks/popup-open-size/__button-close/popup-open-size__button-close.css);
+@import url(../blocks/popup-open-size/__close/popup-open-size__close.css);
+@import url(../blocks/popup-open-size/__container/popup-open-size__container.css);
+@import url(../blocks/popup-open-size/__element-img/popup-open-size__element-img.css);
+@import url(../blocks/popup-open-size/__element-text/popup-open-size__element-text.css);
+@import url(../blocks/popup-open-size/_opened/popup-open-size_opened.css);
