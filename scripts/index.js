@@ -144,13 +144,15 @@ popupAddButtonClose.addEventListener('click', popupAddClose);
 const formAdd = document.querySelector('.form-add')
 formAdd.addEventListener('submit', createClick)
 
+
 function createClick(event){
     event.preventDefault();
     const formInputKyePlacename = formAdd.querySelector('.form__input_kye_placename').value
     const formInputKyePlacelink = formAdd.querySelector('.form__input_kye_placelink').value
-    const cards = { name: formInputKyePlacename, 
+    const newCard = { name: formInputKyePlacename, 
     link: formInputKyePlacelink}
-    createCard(cards)  //Добавление карточек 
+    const card = createCard(newCard)
+    elements.prepend(card)
     popupAddClose()
 }
 
@@ -162,12 +164,27 @@ const elementLikeActive = document.querySelector('.element__like_active');
 
 
 const addLike = element.querySelector('.element__like');
-addLike.addEventListener('click', likeActiveClick)
+addLike.addEventListener('click', (event) => {
+  event.target.classList.toggle('element__like_active');
+})
 
-function likeActiveClick(event) {
-    event.target.classList.toggle('element__like_active');
+function likeActiveClick() {
+    initialCards.forEach(arrayE1 => addCardContent(arrayE1));
 }
+
+
+
 //Нужно доделать для всех карточек через ForEach
 
 
                     //Открытие попапа картинок 
+const popupOpenSize = document.querySelector('.popup-open-size');
+const popupOpenSizeContainer = document.querySelector('.popup-open-size__container');
+const popupElementImg = document.querySelector('.popup__element-img');
+const popupElementText = document.querySelector('.popup__element-text');
+
+popupElementImg.onclick = function() {
+  popupOpenSize.style.display = "block";
+  popupElementImg.link = this.link;
+  popupElementText.innerHTML = this.name;
+}
