@@ -178,10 +178,10 @@ formAdd.addEventListener('submit', createClick)
 
 function createClick(event){
     event.preventDefault();
-    const formInputKyePlacename = formAdd.querySelector('.form__input_kye_placename').value
-    const formInputKyePlacelink = formAdd.querySelector('.form__input_kye_placelink').value
-    const newCard = { name: formInputKyePlacename, 
-    link: formInputKyePlacelink}
+    const formAddInputKyePlacename = formAdd.querySelector('.form-add__input_kye_placename').value
+    const formAddInputKyePlacelink = formAdd.querySelector('.form-add__input_kye_placelink').value
+    const newCard = { name: formAddInputKyePlacename, 
+    link: formAddInputKyePlacelink}
     const card = createCard(newCard)
     elements.prepend(card)
     popupAddClose()
