@@ -9,12 +9,14 @@
   z-index: 1;
   box-sizing: border-box;
 }
-.popup > .popup__container {
+
+.popup>.popup__container {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
 }
-.popup:hover > .popup__container {
+
+.popup:hover>.popup__container {
   visibility: visible;
   opacity: 1;
 }
