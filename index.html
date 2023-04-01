@@ -35,56 +35,56 @@
         </button>
       </section>
       <section class="elements">
-        <template id="cardTemplete">
-        <article class="element">
-          <button type="button" class="element__delete"></button>
-          <img class="element__img">
-          <div class="element__mesto">
-            <h2 class="element__text"></h2>
-            <button type="button" class="element__like element__like_active"></button>
-          </div>
-        </article>
-        </template>
       </section>
-      <div class="popup">
-        <div class="popup__container">
-          <button type="button" class="popup__button-close">
+      <div class="popup popup__redaction">
+        <div class="popup__container popup__container__redaction">
+          <button type="button" class="popup__button-close popup__button-close__redaction">
             <img class="popup__close" src="./images/icon-close.svg" alt="крест">
           </button>
-          <form class="form" name="form-popup">
+          <form class="form form__redaction" name="form-popup">
             <h2 class="form__caption">Редактировать профиль</h2>
-            <input type="text" name="username" class="form__input form__input_kye_username" placeholder="Имя" required>
-            <input type="text" name="status" class="form__input form__input_kye_status" placeholder="О себе" required>
+            <input type="text" name="username" class="form__input form__input__redaction form__input_kye_username" placeholder="Имя" required>
+            <input type="text" name="status" class="form__input form__input__redaction form__input_kye_status" placeholder="О себе" required>
             <button type="submit" class="form__button-save">Сохранить</button>
           </form>
         </div>
       </div>
-      <div class="popup-add">
-        <div class="popup-add__container">
-          <button type="button" class="popup-add__button-close">
-            <img class="popup-add__close" src="./images/icon-close.svg" alt="крест">
+      <div class="popup popup__add">
+        <div class="popup__container popup__container__add">
+          <button type="button" class="popup__button-close popup__button-close__add">
+            <img class="popup__close" src="./images/icon-close.svg" alt="крест">
           </button>
-          <form class="form-add" name="form-add-popup">
-            <h2 class="form-add__caption">Новое место</h2>
-            <input type="text" name="placename" class="form-add__input form-add__input_kye_placename" placeholder="Название" required>
-            <input type="text" name="placelink" class="form-add__input form-add__input_kye_placelink" placeholder="Ссылка на картинку" required>
-            <button type="submit" class="form-add__button-save">Создать</button>
+          <form class="form form__add" name="form-add-popup">
+            <h2 class="form__caption">Новое место</h2>
+            <input type="text" name="placename" class="form__input form__input_kye_placename" placeholder="Название" required>
+            <input type="text" name="placelink" class="form__input form__input_kye_placelink" placeholder="Ссылка на картинку" required>
+            <button type="submit" class="form__button-save">Создать</button>
           </form>
         </div>
       </div>
-      <div class="popup-open-size">
-        <div class="popup-open-size__container">
-          <button type="button" class="popup-open-size__button-close">
-            <img class="popup-open-size__close" src="./images/icon-close.svg" alt="крест">
+      <div class="popup popup__open-size">
+        <div class="popup__container  popup__container__open-size">
+          <button type="button" class="popup__button-close popup__button-close__open-size">
+            <img class="popup__close" src="./images/icon-close.svg" alt="крест">
           </button>
-          <img class="popup-open-size__element-img">
-          <h2 class="popup-open-size__element-text"></h2>
+          <img class="popup__open-size__element-img">
+          <h2 class="popup__open-size__element-text"></h2>
         </div>
       </div>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
+    <template id="cardTemplete">
+      <article class="element">
+        <button type="button" class="element__delete"></button>
+        <img class="element__img">
+        <div class="element__mesto">
+          <h2 class="element__text"></h2>
+          <button type="button" class="element__like element__like_active"></button>
+        </div>
+      </article>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

@@ -9,16 +9,5 @@
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  width: 430px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-}
-
-/*525px*/
-
-@media screen and (max-width: 525px) {
-  .popup__container {
-    gap: 16px 0;
-    justify-items: end;
-    width: 282px;
-  }
 }
