@@ -1,14 +1,14 @@
                     // Попап редактирование ника и статуса
 // Задаем переменные
 
-let popupButtonCloseRedaction = document.querySelector('.popup__button-close__redaction');
+let popupButtonCloseRedaction = document.querySelector('.popup__button-close_redaction');
 let profileButtonEdit = document.querySelector('.profile__button-edit');
-let popupRedaction = document.querySelector('.popup__redaction');
+let popupRedaction = document.querySelector('.popup_redaction');
 let formInputKyeUsername = document.querySelector('.form__input_kye_username');
 let formInputKyeStatus = document.querySelector('.form__input_kye_status')
 let profileUsername = document.querySelector('.profile__username')
 let profileStatus = document.querySelector('.profile__status');
-let formRedaction = document.querySelector('.form__redaction');
+let formRedaction = document.querySelector('.form_redaction');
 
 // Обьявляем функции
 
@@ -85,10 +85,10 @@ const elements = document.querySelector('.elements')
 
 //Открытие попапа картинок 
 
-const popupOpenSize = document.querySelector('.popup__open-size');
-const popupOpenSizeContainer = popupOpenSize.querySelector('.popup-open-size__container');
-const popupElementImg = popupOpenSize.querySelector('.popup__open-size__element-img');
-const popupElementText = popupOpenSize.querySelector('.popup__open-size__element-text');
+const popupOpenSize = document.querySelector('.popup_open-size');
+const popupOpenSizeContainer = popupOpenSize.querySelector('.popup__container_open-size');
+const popupElementImg = popupOpenSize.querySelector('.popup__element-img');
+const popupElementText = popupOpenSize.querySelector('.popup__element-text');
      
 //Создаем функцию добавления карточек из массива
 
@@ -119,8 +119,8 @@ function createCard(card) {
     elementImg.addEventListener('click', () => {
     popupElementImg.src = card.link;
     popupElementText.textContent = card.name;
-    popupOpenSize.classList.add('popup__open-size_opened');
-    const popupOpenSizeButtonClose = popupOpenSize.querySelector('.popup__button-close__open-size')
+    popupOpenSize.classList.add('popup_open-size_opened');
+    const popupOpenSizeButtonClose = popupOpenSize.querySelector('.popup__button-close_open-size')
     popupOpenSizeButtonClose.addEventListener('click', popupOpenSizeClose)
   });
 
@@ -137,7 +137,7 @@ initialCards.forEach(card => {
 //Создаем функцию удаления попапа с картинкой
 
 function popupOpenSizeClose() {
-  popupOpenSize.classList.toggle('popup__open-size_opened'); 
+  popupOpenSize.classList.toggle('popup_open-size_opened'); 
 }
 
 //Создаем функцию удаления карточек
@@ -152,18 +152,18 @@ function deleteCardCick(event){
 
 //Объявление переменных
 
-let popupAdd = document.querySelector('.popup__add');
+let popupAdd = document.querySelector('.popup_add');
 let profileButtonPluse = document.querySelector('.profile__button-pluse');
-let popupAddButtonClose = document.querySelector('.popup__button-close__add');
+let popupAddButtonClose = document.querySelector('.popup__button-close_add');
 
 //Объявление функций
 
 function popupAddClick() {
-    popupAdd.classList.add('popup__add_opened');
+    popupAdd.classList.add('popup_add_opened');
 }
 
 function popupAddClose() {
-    popupAdd.classList.toggle('popup__add_opened'); 
+    popupAdd.classList.toggle('popup_add_opened'); 
 }
 
 //Вызов функций открытия и закрытия попапа
@@ -173,7 +173,7 @@ popupAddButtonClose.addEventListener('click', popupAddClose);
 
 // Реализуем отправку изменений из попапа в профиль
 
-const formAdd = document.querySelector('.form__add')
+const formAdd = document.querySelector('.form_add')
 formAdd.addEventListener('submit', createClick)
 
 function createClick(event){
