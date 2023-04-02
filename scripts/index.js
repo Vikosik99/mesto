@@ -1,25 +1,34 @@
                     // Попап редактирование ника и статуса
 // Задаем переменные
 
-let popupButtonCloseRedaction = document.querySelector('.popup__button-close_redaction');
-let profileButtonEdit = document.querySelector('.profile__button-edit');
-let popupRedaction = document.querySelector('.popup_redaction');
-let formInputKyeUsername = document.querySelector('.form__input_kye_username');
-let formInputKyeStatus = document.querySelector('.form__input_kye_status')
-let profileUsername = document.querySelector('.profile__username')
-let profileStatus = document.querySelector('.profile__status');
-let formRedaction = document.querySelector('.form_redaction');
+const popupButtonCloseRedaction = document.querySelector('.popup__button-close_redaction');
+const profileButtonEdit = document.querySelector('.profile__button-edit');
+const popupRedaction = document.querySelector('.popup_redaction');
+const formInputKyeUsername = document.querySelector('.form__input_kye_username');
+const formInputKyeStatus = document.querySelector('.form__input_kye_status')
+const profileUsername = document.querySelector('.profile__username')
+const profileStatus = document.querySelector('.profile__status');
+const formRedaction = document.querySelector('.form_redaction');
 
 // Обьявляем функции
 
+//Общая функция открытия попапов
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+} 
+
+//Общая функция закрытия попапов
+
+function closePopup(popup) {
+  popup.classList.toggle('popup_opened');
+} 
+
+//Функция переноса текста из профиля в попап
 function popupClick() {
-    popupRedaction.classList.add('popup_opened');
+    openPopup(popupRedaction);
     formInputKyeUsername.value = profileUsername.textContent;  //реализуем перенос текста из профиля в попап
     formInputKyeStatus.value = profileStatus.textContent;
-}
-
-function popupClose() {
-    popupRedaction.classList.toggle('popup_opened'); 
 }
 
 // Реализуем отправку изменений из попапа в профиль
@@ -29,14 +38,13 @@ function saveClick(event) {
 
     profileUsername.textContent = formInputKyeUsername.value;
     profileStatus.textContent = formInputKyeStatus.value;
-
-    popupClose();
+    closePopup(popupRedaction);
 }
 
-// Реализуем открытие и закрытие попапа
+// Реализуем открытие и закрытие попапа ред
 
 profileButtonEdit.addEventListener('click', popupClick); 
-popupButtonCloseRedaction.addEventListener('click', popupClose)
+popupButtonCloseRedaction.addEventListener('click', saveClick)
 
 // Отправка формы
 
@@ -50,38 +58,32 @@ const initialCards = [
     {
       name: 'Архыз',
       link: './images/image-card-archiz.jpeg',
-      alt: 'Фотография гор Архыза' 
     },
     {
       name: 'Тиберда',
       link: './images/image-card-tiberda.jpeg',
-      alt: 'Фотография девушки на фоне реки и гор в Тиберде' 
     },
     {
       name: 'Домбай',
       link: './images/image-card-dombay-l.jpeg',
-      alt: 'Фотография девушки смотрящей на горы в Домбае' 
     },
     {
       name: 'Краснодар',
       link: './images/image-card-krasnodar.jpeg',
-      alt: 'Фотография девушки на фоне парка Галицкого в Краснодаре' 
     },
     {
       name: 'Домбай зимой',
       link: './images/image-card-dombay-z.jpeg',
-      alt: 'Фотография девушки на сноуборде на фоне снежных гор в Домбае' 
     },
     {
       name: 'Ялта',
       link: './images/image-card-yalta.jpeg',
-      alt: 'Фотография девушки на фоне гор и моря в Ялте' 
     }
   ];
 
 //Реализуем передачу данных из массива 
 
-const elements = document.querySelector('.elements')
+const elementsContainer = document.querySelector('.elements')
 
 //Открытие попапа картинок 
 
@@ -97,7 +99,7 @@ function createCard(card) {
    
     const elementImg = cardTemplete.querySelector('.element__img')
     elementImg.setAttribute('src', card.link)
-    elementImg.setAttribute('alt', card.alt)
+    elementImg.setAttribute('alt', card.name)
     
     const elementText = cardTemplete.querySelector('.element__text')
     elementText.textContent = card.name
@@ -119,7 +121,7 @@ function createCard(card) {
     elementImg.addEventListener('click', () => {
     popupElementImg.src = card.link;
     popupElementText.textContent = card.name;
-    popupOpenSize.classList.add('popup_open-size_opened');
+    openPopup(popupOpenSize)
     const popupOpenSizeButtonClose = popupOpenSize.querySelector('.popup__button-close_open-size')
     popupOpenSizeButtonClose.addEventListener('click', popupOpenSizeClose)
   });
@@ -131,13 +133,13 @@ function createCard(card) {
 
 initialCards.forEach(card => {
     const newCard = createCard(card)
-    elements.append(newCard)
+    elementsContainer.append(newCard)
 })
 
 //Создаем функцию удаления попапа с картинкой
 
 function popupOpenSizeClose() {
-  popupOpenSize.classList.toggle('popup_open-size_opened'); 
+  closePopup(popupOpenSize) 
 }
 
 //Создаем функцию удаления карточек
@@ -152,24 +154,18 @@ function deleteCardCick(event){
 
 //Объявление переменных
 
-let popupAdd = document.querySelector('.popup_add');
-let profileButtonPluse = document.querySelector('.profile__button-pluse');
-let popupAddButtonClose = document.querySelector('.popup__button-close_add');
+const popupAdd = document.querySelector('.popup_add');
+const profileButtonPluse = document.querySelector('.profile__button-pluse');
+const popupAddButtonClose = document.querySelector('.popup__button-close_add');
 
-//Объявление функций
+//Вызов функций открытия и закрытия попапа ред карточек
 
-function popupAddClick() {
-    popupAdd.classList.add('popup_add_opened');
-}
-
-function popupAddClose() {
-    popupAdd.classList.toggle('popup_add_opened'); 
-}
-
-//Вызов функций открытия и закрытия попапа
-
-profileButtonPluse.addEventListener('click', popupAddClick); 
-popupAddButtonClose.addEventListener('click', popupAddClose);
+profileButtonPluse.addEventListener('click', function () {
+  openPopup(popupAdd)
+}); 
+popupAddButtonClose.addEventListener('click', function () {
+  closePopup(popupAdd)
+}); 
 
 // Реализуем отправку изменений из попапа в профиль
 
@@ -183,6 +179,6 @@ function createClick(event){
     const newCard = { name: formInputKyePlacename, 
     link: formInputKyePlacelink}
     const card = createCard(newCard)
-    elements.prepend(card)
-    popupAddClose()
+    elementsContainer.prepend(card)
+   closePopup(popupAdd)
 }
