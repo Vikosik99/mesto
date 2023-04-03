@@ -111,9 +111,12 @@ function createClick(event){
     link: Placelink}
     const card = createCard(newCard)
     elementsContainer.prepend(card)
-   closePopup(popupAdd)
+    closePopup(popupAdd)
+    //Очистка импутов после сабмита
+    const inputs = document.querySelectorAll('.form__input_kye_placename, .form__input_kye_placelink');
+    inputs.forEach(input => {
+      input.value = '';});
 }
-
 
                      //Реализация добавления обработчиков
 
