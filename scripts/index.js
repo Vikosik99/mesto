@@ -60,21 +60,21 @@ function saveClick(event) {
      
 //Функция добавления карточек из массива
 function createCard(card) {
-    const Newcard = cardTemplate.content.cloneNode(true)
+    const newcard = cardTemplate.content.cloneNode(true)
    
-    const elementImg = Newcard.querySelector('.element__img')
+    const elementImg = newcard.querySelector('.element__img')
     elementImg.setAttribute('src', card.link)
     elementImg.setAttribute('alt', card.name)
     
-    const elementText = Newcard.querySelector('.element__text')
+    const elementText = newcard.querySelector('.element__text')
     elementText.textContent = card.name
 
     //Реализуем удаление карточки 
-    const deleteElementButton = Newcard.querySelector('.element__delete')
+    const deleteElementButton = newcard.querySelector('.element__delete')
     deleteElementButton.addEventListener('click', deleteCardCick) //Реализуем удаление карточки по клику
    
     //Реализуем лайк карточки
-    const addLike = Newcard.querySelector('.element__like');
+    const addLike = newcard.querySelector('.element__like');
     addLike.addEventListener('click', (event) => {
       event.target.classList.toggle('element__like_active');
     })
@@ -82,12 +82,13 @@ function createCard(card) {
    // Реализуем попап открытия картинки
     elementImg.addEventListener('click', () => {
     popupElementImg.src = card.link;
+    popupElementImg.alt = card.name;
     popupElementText.textContent = card.name;
     openPopup(popupOpenSize)
     popupOpenSizeButtonClose.addEventListener('click', closePopupOpenSize)
   });
 
-    return Newcard;
+    return newcard;
 }
 
 //Функция удаления попапа с картинкой
@@ -105,17 +106,15 @@ function deleteCardCick(event){
 // Функция добавления новых карточек
 function createClick(event){
     event.preventDefault();
-    const Placename = formInputKyePlacename.value
-    const Placelink = formInputKyePlacelink.value
-    const newCard = { name: Placename, 
-    link: Placelink}
+    const placename = formInputKyePlacename.value
+    const placelink = formInputKyePlacelink.value
+    const newCard = { name: placename, 
+    link: placelink}
     const card = createCard(newCard)
     elementsContainer.prepend(card)
     closePopup(popupAdd)
     //Очистка импутов после сабмита
-    const inputs = document.querySelectorAll('.form__input_kye_placename, .form__input_kye_placelink');
-    inputs.forEach(input => {
-      input.value = '';});
+    formAdd.reset()
 }
 
                      //Реализация добавления обработчиков
