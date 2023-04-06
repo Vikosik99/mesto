@@ -35,19 +35,19 @@ const cardTemplate = document.querySelector('#cardTemplete');
 //Общая функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-} 
+};
 
 //Общая функция закрытия попапов
 function closePopup(popup) {
   popup.classList.toggle('popup_opened');
-} 
+};
 
 //Функция переноса текста из профиля в попап
 function popupClick() {
     openPopup(popupRedaction);
     formInputKyeUsername.value = profileUsername.textContent;  //реализуем перенос текста из профиля в попап
     formInputKyeStatus.value = profileStatus.textContent;
-}
+};
 
 // Функция отправки изменений из попапа в профиль
 function saveClick(event) {
@@ -56,7 +56,7 @@ function saveClick(event) {
     profileUsername.textContent = formInputKyeUsername.value;
     profileStatus.textContent = formInputKyeStatus.value;
     closePopup(popupRedaction);
-}
+};
      
 //Функция добавления карточек из массива
 function createCard(card) {
@@ -89,21 +89,21 @@ function createCard(card) {
   });
 
     return newcard;
-}
+};
 
 //Функция удаления попапа с картинкой
 function closePopupOpenSize() {
   closePopup(popupOpenSize) 
-}
+};
 
 //Функция удаления карточек
 function deleteCardCick(event){
     const buttonDelete = event.target
     const element = buttonDelete.closest('.element')
     element.remove()
-}
+};
 
-// Функция добавления новых карточек
+//Функция добавления новых карточек
 function createClick(event){
     event.preventDefault();
     const placename = formInputKyePlacename.value
@@ -115,13 +115,39 @@ function createClick(event){
     closePopup(popupAdd)
     //Очистка импутов после сабмита
     formAdd.reset()
+};
+
+//Функции закрытия попапов по клику вне контейнера
+//Redaction
+function closePopupByClickOnOverlayRedaction (event) {
+  console.log(event.target, event.currentTarget);
+if (event.target === event.currentTarget){
+  closePopup(popupRedaction);
 }
+};
+//Add
+function closePopupByClickOnOverlayAdd (event) {
+  console.log(event.target, event.currentTarget);
+if (event.target === event.currentTarget){
+  closePopup(popupAdd);
+}
+};
+//popupOpenSize
+function closePopupByClickOnOverlayOpenSize (event) {
+  console.log(event.target, event.currentTarget);
+if (event.target === event.currentTarget){
+  closePopup(popupOpenSize);
+}
+};
+
+//Функции закрытия попапов по нажатию на esc
 
                      //Реализация добавления обработчиков
 
 // Реализация открытия и закрытия попапа редактирования профиля
 profileButtonEdit.addEventListener('click', popupClick); 
-popupButtonCloseRedaction.addEventListener('click', saveClick)
+popupButtonCloseRedaction.addEventListener('click', saveClick);
+
 
 // Реализация отправки формы редактирования профиля
 formRedaction.addEventListener('submit', saveClick);
@@ -131,10 +157,10 @@ formRedaction.addEventListener('submit', saveClick);
 initialCards.forEach(card => {
   const newCard = createCard(card)
   elementsContainer.append(newCard)
-})
+});
 
 // Реализация отправки изменений из попапа добавления карточек в профиль
-formAdd.addEventListener('submit', createClick)
+formAdd.addEventListener('submit', createClick);
 
 //Реализация открытия и закрытия попапа редактирования карточек
 profileButtonPluse.addEventListener('click', function () {
@@ -144,3 +170,15 @@ popupAddButtonClose.addEventListener('click', function () {
   closePopup(popupAdd)
 }); 
 
+//Реализация закрытия попапов при клике на overlay
+popupRedaction.addEventListener('click', closePopupByClickOnOverlayRedaction);
+popupAdd.addEventListener('click', closePopupByClickOnOverlayAdd);
+popupOpenSize.addEventListener('click', closePopupByClickOnOverlayOpenSize);
+
+
+//проверить работоспособность 
+popupRedaction.addEventListener('keydown', function (evt) {
+    if (evt.keyCode = 27) {
+    closePopup(popupRedaction)
+    };
+}); 
