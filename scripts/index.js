@@ -39,7 +39,7 @@ function openPopup(popup) {
 
 //Общая функция закрытия попапов
 function closePopup(popup) {
-  popup.classList.toggle('popup_opened');
+  popup.classList.remove('popup_opened');
 };
 
 //Функция переноса текста из профиля в попап
@@ -51,13 +51,18 @@ function openPopupRedaction() {
 };
 
 // Функция отправки изменений из попапа в профиль
-function saveClick(event) {
+function handleSubmitProfileForm(event) {
     event.preventDefault();
 
     profileUsername.textContent = formInputKyeUsername.value;
     profileStatus.textContent = formInputKyeStatus.value;
     closePopup(popupRedaction);
 };
+
+//Функция закрытия попапа redaction
+function closePopupRedaction() {
+  closePopup(popupRedaction);
+}
      
 //Функция добавления карточек из массива
 function createCard(card) {
@@ -75,8 +80,8 @@ function createCard(card) {
     deleteElementButton.addEventListener('click', deleteCardCick) //Реализуем удаление карточки по клику
    
     //Реализуем лайк карточки
-    const addLike = newcard.querySelector('.element__like');
-    addLike.addEventListener('click', (event) => {
+    const likeElement = newcard.querySelector('.element__like');
+    likeElement.addEventListener('click', (event) => {
       event.target.classList.toggle('element__like_active');
     })
 
@@ -105,7 +110,7 @@ function deleteCardCick(event){
 };
 
 //Функция добавления новых карточек
-function createClick(event){
+function handleSubmitAddCardForm(event){
     event.preventDefault();
     const placename = formInputKyePlacename.value
     const placelink = formInputKyePlacelink.value
@@ -118,42 +123,29 @@ function createClick(event){
     formAdd.reset()
 };
 
-//Функции закрытия попапов по клику вне контейнера
-//Redaction
-function closePopupByClickOnOverlayRedaction (event) {
-if (event.target === event.currentTarget){
-  closePopup(popupRedaction);
-}
-};
-//Add
-function closePopupByClickOnOverlayAdd (event) {
-if (event.target === event.currentTarget){
-  closePopup(popupAdd);
-}
-};
-//popupOpenSize
-function closePopupByClickOnOverlayOpenSize (event) {
-if (event.target === event.currentTarget){
-  closePopup(popupOpenSize);
-}
+//Функция закрытия попапов по клику вне контейнера
+function handleCloseByOverlay(event) {
+  if(event.target === event.currentTarget) {
+    closePopup(event.currentTarget)
+  }
 };
 
-//Функция закрытие попапов по нажатию на esc
+//Функция закрытия попапов по нажатию на esc
 function closePopupByEsc (evt) {
   if (evt.key === "Escape") {
-    const pop = document.querySelector('.popup_opened')
-  closePopup(pop)
+    const poppupClose = document.querySelector('.popup_opened')
+  closePopup(poppupClose)
   }
 }; 
                      //Реализация добавления обработчиков
 
 // Реализация открытия и закрытия попапа редактирования профиля
 profileButtonEdit.addEventListener('click', openPopupRedaction); 
-popupButtonCloseRedaction.addEventListener('click', saveClick);
+popupButtonCloseRedaction.addEventListener('click', closePopupRedaction);
 
 
 // Реализация отправки формы редактирования профиля
-formRedaction.addEventListener('submit', saveClick);
+formRedaction.addEventListener('submit', handleSubmitProfileForm);
 
 
 //Реализация проходки по всему массиву данных и их выводу
@@ -163,7 +155,7 @@ initialCards.forEach(card => {
 });
 
 // Реализация отправки изменений из попапа добавления карточек в профиль
-formAdd.addEventListener('submit', createClick);
+formAdd.addEventListener('submit', handleSubmitAddCardForm);
 
 //Реализация открытия и закрытия попапа редактирования карточек
 profileButtonPluse.addEventListener('click', function () {
@@ -172,12 +164,16 @@ profileButtonPluse.addEventListener('click', function () {
 }); 
 popupAddButtonClose.addEventListener('click', function () {
   closePopup(popupAdd)
+  //Очистка импутов после закрытие попапа
+  formAdd.reset()
 }); 
 
 //Реализация закрытия попапов при клике на overlay
-popupRedaction.addEventListener('click', closePopupByClickOnOverlayRedaction);
-popupAdd.addEventListener('click', closePopupByClickOnOverlayAdd);
-popupOpenSize.addEventListener('click', closePopupByClickOnOverlayOpenSize);
+const popups = Array.from(document.querySelectorAll('.popup'));
+popups.forEach((popup) => {
+  popup.addEventListener('click', handleCloseByOverlay)
+});
 
 //Реализация закрытия попапов через esc
 document.addEventListener('keydown', closePopupByEsc);
+// document.removeEventListener('keydown', closePopupByEsc);
