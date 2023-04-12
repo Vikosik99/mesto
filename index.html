@@ -41,10 +41,12 @@
           <button type="button" class="popup__button-close popup__button-close_redaction">
             <img class="popup__close" src="./images/icon-close.svg" alt="крест">
           </button>
-          <form class="form form_redaction" name="form-popup">
+          <form class="form form_redaction" name="form-popup" novalidate>
             <h2 class="form__caption">Редактировать профиль</h2>
-            <input type="text" name="username" class="form__input form__input_redaction form__input_kye_username" placeholder="Имя" required>
-            <input type="text" name="status" class="form__input form__input_redaction form__input_kye_status" placeholder="О себе" required>
+            <input minlength="2" maxlength="40" type="text" name="username" id="username" class="form__input form__input_redaction form__input_kye_username" placeholder="Имя" required>
+            <span class="form__input-error form__input-error_type_username"></span>
+            <input minlength="2" maxlength="200" type="text" name="status" id="status" class="form__input form__input_redaction form__input_kye_status" placeholder="О себе" required>
+            <span class="form__input-error form__input-error_type_status"></span>
             <button type="submit" class="form__button-save">Сохранить</button>
           </form>
         </div>
@@ -54,13 +56,15 @@
           <button type="button" class="popup__button-close popup__button-close_add">
             <img class="popup__close" src="./images/icon-close.svg" alt="крест">
           </button>
-          <form class="form form_add" name="form-add-popup">
+          <form class="form form_add" name="form-add-popup" novalidate>
             <h2 class="form__caption">Новое место</h2>
-            <input type="text" name="placename" class="form__input form__input_kye_placename" placeholder="Название" required>
-            <input type="text" name="placelink" class="form__input form__input_kye_placelink" placeholder="Ссылка на картинку" required>
+            <input minlength="1" maxlength="30" type="text" name="placename" id="placename" class="form__input form__input_add form__input_kye_placename" placeholder="Название" required>
+            <span class="form__input-error form__input-error_type_placename"></span>
+            <input type="url" name="placelink" id="placelink" class="form__input form__input_add form__input_kye_placelink" placeholder="Ссылка на картинку" required>
+            <span class="form__input-error form__input-error_type_placelink"></span>
             <button type="submit" class="form__button-save">Создать</button>
           </form>
-        </div>
+        </div> 
       </div>
       <div class="popup popup_open-size">
         <div class="popup__container  popup__container_open-size">
@@ -86,7 +90,7 @@
       </article>
     </template>
     <script src="./scripts/cards.js"></script>
-    <script src="./scripts/index.js"></script>
     <script src="./scripts/validate.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

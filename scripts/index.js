@@ -43,10 +43,11 @@ function closePopup(popup) {
 };
 
 //Функция переноса текста из профиля в попап
-function popupClick() {
+function openPopupRedaction() {
     openPopup(popupRedaction);
     formInputKyeUsername.value = profileUsername.textContent;  //реализуем перенос текста из профиля в попап
     formInputKyeStatus.value = profileStatus.textContent;
+    resetFormErrors(formRedaction, validationConfig); //Очистка импутов с ошибкой
 };
 
 // Функция отправки изменений из попапа в профиль
@@ -120,32 +121,34 @@ function createClick(event){
 //Функции закрытия попапов по клику вне контейнера
 //Redaction
 function closePopupByClickOnOverlayRedaction (event) {
-  console.log(event.target, event.currentTarget);
 if (event.target === event.currentTarget){
   closePopup(popupRedaction);
 }
 };
 //Add
 function closePopupByClickOnOverlayAdd (event) {
-  console.log(event.target, event.currentTarget);
 if (event.target === event.currentTarget){
   closePopup(popupAdd);
 }
 };
 //popupOpenSize
 function closePopupByClickOnOverlayOpenSize (event) {
-  console.log(event.target, event.currentTarget);
 if (event.target === event.currentTarget){
   closePopup(popupOpenSize);
 }
 };
 
-//Функции закрытия попапов по нажатию на esc
-
+//Функция закрытие попапов по нажатию на esc
+function closePopupByEsc (evt) {
+  if (evt.key === "Escape") {
+    const pop = document.querySelector('.popup_opened')
+  closePopup(pop)
+  }
+}; 
                      //Реализация добавления обработчиков
 
 // Реализация открытия и закрытия попапа редактирования профиля
-profileButtonEdit.addEventListener('click', popupClick); 
+profileButtonEdit.addEventListener('click', openPopupRedaction); 
 popupButtonCloseRedaction.addEventListener('click', saveClick);
 
 
@@ -164,6 +167,7 @@ formAdd.addEventListener('submit', createClick);
 
 //Реализация открытия и закрытия попапа редактирования карточек
 profileButtonPluse.addEventListener('click', function () {
+  resetFormErrors(formAdd, validationConfig); //Очистка импутов с ошибкой
   openPopup(popupAdd)
 }); 
 popupAddButtonClose.addEventListener('click', function () {
@@ -175,10 +179,5 @@ popupRedaction.addEventListener('click', closePopupByClickOnOverlayRedaction);
 popupAdd.addEventListener('click', closePopupByClickOnOverlayAdd);
 popupOpenSize.addEventListener('click', closePopupByClickOnOverlayOpenSize);
 
-
-//проверить работоспособность 
-popupRedaction.addEventListener('keydown', function (evt) {
-    if (evt.keyCode = 27) {
-    closePopup(popupRedaction)
-    };
-}); 
+//Реализация закрытия попапов через esc
+document.addEventListener('keydown', closePopupByEsc);
