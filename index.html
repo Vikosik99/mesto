@@ -1,77 +1,145 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./pages/index.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./pages/index.css" rel="stylesheet" />
     <title>Mesto</title>
   </head>
   <body class="page">
     <header class="header">
-      <img class="logo" src="./images/logo-header.svg" alt="логотип">
+      <img class="logo" src="./images/logo-header.svg" alt="логотип" />
     </header>
     <main class="content">
       <section class="profile">
         <div class="profile__card">
-          <img class="profile__avatar"
+          <img
+            class="profile__avatar"
             src="./images/image-avatar.jpg"
-            alt="аватар">
+            alt="аватар"
+          />
           <div class="profile__info">
             <div class="profile__flex">
               <h1 class="profile__username">Жак-Ив Кусто</h1>
               <button type="button" class="profile__button-edit">
-                <img class="profile__pencil"
+                <img
+                  class="profile__pencil"
                   src="./images/vector-pencil.svg"
-                  alt="ручка">
+                  alt="ручка"
+                />
               </button>
             </div>
             <p class="profile__status">Исследователь океана</p>
           </div>
         </div>
         <button type="button" class="profile__button-pluse">
-          <img class="profile__pluse"
+          <img
+            class="profile__pluse"
             src="./images/vector-plus.svg"
-            alt="плюс">
+            alt="плюс"
+          />
         </button>
       </section>
-      <section class="elements">
-      </section>
+      <section class="elements"></section>
       <div class="popup popup_redaction">
         <div class="popup__container popup__container_redaction">
-          <button type="button" class="popup__button-close popup__button-close_redaction">
-            <img class="popup__close" src="./images/icon-close.svg" alt="крест">
+          <button
+            type="button"
+            class="popup__button-close popup__button-close_redaction"
+          >
+            <img
+              class="popup__close"
+              src="./images/icon-close.svg"
+              alt="крест"
+            />
           </button>
           <form class="form form_redaction" name="form-popup" novalidate>
             <h2 class="form__caption">Редактировать профиль</h2>
-            <input minlength="2" maxlength="40" type="text" name="username" id="username" class="form__input form__input_redaction form__input_kye_username" placeholder="Имя" required>
-            <span class="form__input-error form__input-error_type_username"></span>
-            <input minlength="2" maxlength="200" type="text" name="status" id="status" class="form__input form__input_redaction form__input_kye_status" placeholder="О себе" required>
-            <span class="form__input-error form__input-error_type_status"></span>
+            <input
+              minlength="2"
+              maxlength="40"
+              type="text"
+              name="username"
+              id="username"
+              class="form__input form__input_redaction form__input_kye_username"
+              placeholder="Имя"
+              required
+            />
+            <span
+              class="form__input-error form__input-error_type_username"
+            ></span>
+            <input
+              minlength="2"
+              maxlength="200"
+              type="text"
+              name="status"
+              id="status"
+              class="form__input form__input_redaction form__input_kye_status"
+              placeholder="О себе"
+              required
+            />
+            <span
+              class="form__input-error form__input-error_type_status"
+            ></span>
             <button type="submit" class="form__button-save">Сохранить</button>
           </form>
         </div>
       </div>
       <div class="popup popup_add">
         <div class="popup__container popup__container_add">
-          <button type="button" class="popup__button-close popup__button-close_add">
-            <img class="popup__close" src="./images/icon-close.svg" alt="крест">
+          <button
+            type="button"
+            class="popup__button-close popup__button-close_add"
+          >
+            <img
+              class="popup__close"
+              src="./images/icon-close.svg"
+              alt="крест"
+            />
           </button>
           <form class="form form_add" name="form-add-popup" novalidate>
             <h2 class="form__caption">Новое место</h2>
-            <input minlength="2" maxlength="30" type="text" name="placename" id="placename" class="form__input form__input_add form__input_kye_placename" placeholder="Название" required>
-            <span class="form__input-error form__input-error_type_placename"></span>
-            <input type="url" name="placelink" id="placelink" class="form__input form__input_add form__input_kye_placelink" placeholder="Ссылка на картинку" required>
-            <span class="form__input-error form__input-error_type_placelink"></span>
+            <input
+              minlength="2"
+              maxlength="30"
+              type="text"
+              name="placename"
+              id="placename"
+              class="form__input form__input_add form__input_kye_placename"
+              placeholder="Название"
+              required
+            />
+            <span
+              class="form__input-error form__input-error_type_placename"
+            ></span>
+            <input
+              type="url"
+              name="placelink"
+              id="placelink"
+              class="form__input form__input_add form__input_kye_placelink"
+              placeholder="Ссылка на картинку"
+              required
+            />
+            <span
+              class="form__input-error form__input-error_type_placelink"
+            ></span>
             <button type="submit" class="form__button-save">Создать</button>
           </form>
-        </div> 
+        </div>
       </div>
       <div class="popup popup_open-size">
-        <div class="popup__container  popup__container_open-size">
-          <button type="button" class="popup__button-close popup__button-close_open-size">
-            <img class="popup__close" src="./images/icon-close.svg" alt="крест">
+        <div class="popup__container popup__container_open-size">
+          <button
+            type="button"
+            class="popup__button-close popup__button-close_open-size"
+          >
+            <img
+              class="popup__close"
+              src="./images/icon-close.svg"
+              alt="крест"
+            />
           </button>
-          <img class="popup__element-img">
+          <img class="popup__element-img" />
           <h2 class="popup__element-text"></h2>
         </div>
       </div>
@@ -82,15 +150,18 @@
     <template id="cardTemplete">
       <article class="element">
         <button type="button" class="element__delete"></button>
-        <img class="element__img">
+        <img class="element__img" />
         <div class="element__mesto">
           <h2 class="element__text"></h2>
-          <button type="button" class="element__like element__like_active"></button>
+          <button
+            type="button"
+            class="element__like element__like_active"
+          ></button>
         </div>
       </article>
     </template>
-    <script src="./scripts/cards.js"></script>
-    <script src="./scripts/validate.js"></script>
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/card.js"></script>
+    <script src="./scripts/formValidator.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
