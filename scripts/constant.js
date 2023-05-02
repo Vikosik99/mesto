@@ -72,6 +72,18 @@ const cardTemplate = document.querySelector("#cardTemplete");
 const formInputAdd = formAdd.querySelectorAll(".form__input");
 const formButtonSaveAdd = formAdd.querySelector(".form__button-save");
 
+const validationConfig = {
+  inputSelector: ".form__input", // input  ПЕРЕНЕСЕНО
+  submitButtonSelector: ".form__button-save", // button  ПЕРЕНЕСЕНО
+  inactiveButtonClass: "form__button-save_valid", // button valid  ПЕРЕНЕСЕНО
+  inputErrorClass: "form__input_error", // input ошибка  ПЕРЕНЕСЕНО
+  errorClass: "form__input-error_visible", // span  ПЕРЕНЕСЕНО
+  errorTemplateSelector: ".form__input-error_type_", // span конкретный  ПЕРЕНЕСЕНО
+};
+
+const formPopupRedaction = document.forms.formPopup;
+const formPopupAdd = document.forms.formAddPopup;
+
 // Экспорт всех переменных
 export {
   initialCards,
@@ -98,4 +110,7 @@ export {
   cardTemplate,
   formInputAdd,
   formButtonSaveAdd,
+  validationConfig,
+  formPopupRedaction,
+  formPopupAdd,
 };

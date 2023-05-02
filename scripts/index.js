@@ -23,8 +23,23 @@ import {
   cardTemplate,
   formInputAdd,
   formButtonSaveAdd,
+  validationConfig,
+  formPopupRedaction,
+  formPopupAdd,
 } from "./constant.js";
 import Card from "./card.js";
+import FormValidator from "./formValidator.js";
+
+// Экземпляр класса формвалидетер для 1ой формы и запуск валидации
+const formPopupRedactionValidator = new FormValidator(
+  validationConfig,
+  formPopupRedaction
+);
+formPopupRedactionValidator.enableValidation(); //Запуск валидации
+
+// Экземпляр класса формвалидетер для 2ой формы
+const formPopupAddValidator = new FormValidator(validationConfig, formPopupAdd);
+formPopupAddValidator.enableValidation(); //Запуск валидации
 
 // // Объявление переменных
 
@@ -161,7 +176,8 @@ function openPopupRedaction() {
   openPopup(popupRedaction);
   formInputKyeUsername.value = profileUsername.textContent; //реализуем перенос текста из профиля в попап
   formInputKyeStatus.value = profileStatus.textContent;
-  resetFormErrors(formRedaction, validationConfig); //Очистка импутов с ошибкой
+  formPopupRedactionValidator.resetFormErrors();
+  // resetFormErrors(formRedaction, validationConfig); //Очистка импутов с ошибкой
 }
 
 // Функция отправки изменений из попапа в профиль
@@ -271,14 +287,16 @@ formRedaction.addEventListener("submit", handleSubmitProfileForm);
 
 //Реализация открытия и закрытия попапа редактирования карточек
 profileButtonPluse.addEventListener("click", function () {
-  resetFormErrors(formAdd, validationConfig); //Очистка импутов с ошибкой
-  toggleButtonState(
-    formInputAdd,
-    formButtonSaveAdd,
-    validationConfig.inactiveButtonClass
-  );
+  formPopupAddValidator.resetFormErrors();
+  // resetFormErrors(formAdd, validationConfig); //Очистка импутов с ошибкой
+  // toggleButtonState(
+  //   formInputAdd,
+  //   formButtonSaveAdd,
+  //   validationConfig.inactiveButtonClass
+  // );
   openPopup(popupAdd);
 });
+
 popupAddButtonClose.addEventListener("click", function () {
   closePopup(popupAdd);
   //Очистка импутов после закрытие попапа
