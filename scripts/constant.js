@@ -73,12 +73,12 @@ const formInputAdd = formAdd.querySelectorAll(".form__input");
 const formButtonSaveAdd = formAdd.querySelector(".form__button-save");
 
 const validationConfig = {
-  inputSelector: ".form__input", // input  ПЕРЕНЕСЕНО
-  submitButtonSelector: ".form__button-save", // button  ПЕРЕНЕСЕНО
-  inactiveButtonClass: "form__button-save_valid", // button valid  ПЕРЕНЕСЕНО
-  inputErrorClass: "form__input_error", // input ошибка  ПЕРЕНЕСЕНО
-  errorClass: "form__input-error_visible", // span  ПЕРЕНЕСЕНО
-  errorTemplateSelector: ".form__input-error_type_", // span конкретный  ПЕРЕНЕСЕНО
+  inputSelector: ".form__input", // input
+  submitButtonSelector: ".form__button-save", // button
+  inactiveButtonClass: "form__button-save_valid", // button valid
+  inputErrorClass: "form__input_error", // input ошибка
+  errorClass: "form__input-error_visible", // span
+  errorTemplateSelector: ".form__input-error_type_", // span конкретный
 };
 
 const formPopupRedaction = document.forms.formPopup;

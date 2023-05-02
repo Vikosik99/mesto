@@ -1,37 +1,36 @@
+//Импорты
 import {
-  initialCards,
-  popupButtonCloseRedaction,
-  popupAddButtonClose,
-  popupOpenSizeButtonClose,
-  popupRedaction,
-  popupAdd,
   popupOpenSize,
-  formInputKyeUsername,
-  formInputKyeStatus,
-  profileButtonEdit,
-  profileUsername,
-  profileStatus,
-  profileButtonPluse,
-  formRedaction,
-  formAdd,
-  formInputKyePlacename,
-  formInputKyePlacelink,
-  elementsContainer,
-  popupOpenSizeContainer,
   popupElementImg,
   popupElementText,
-  cardTemplate,
-  formInputAdd,
-  formButtonSaveAdd,
 } from "./constant.js";
-
 import { openPopup } from "./index.js";
+
+//Классы
 export default class Card {
   constructor(card, cardTemplate) {
     this._card = card;
     this._name = card.name;
     this._link = card.link;
     this._cardTemplate = cardTemplate;
+  }
+
+  createCard() {
+    this._cloneElement = this._getCloneTemplate();
+    this._elementImg = this._cloneElement.querySelector(".element__img");
+    this._elementText = this._cloneElement.querySelector(".element__text");
+    this._deleteElementButton =
+      this._cloneElement.querySelector(".element__delete");
+    this._likeElement = this._cloneElement.querySelector(".element__like");
+
+    this._elementImg.setAttribute("src", this._link);
+    this._elementImg.setAttribute("alt", this._name);
+
+    this._elementText.textContent = this._name;
+
+    this._setEventListener();
+
+    return this._cloneElement;
   }
 
   _getCloneTemplate() {
@@ -66,23 +65,5 @@ export default class Card {
     this._likeElement.addEventListener("click", this._addLike);
     // Обработка открытия попапа с картинкой
     this._elementImg.addEventListener("click", this._openPopupOpenSize);
-  }
-
-  createCard() {
-    this._cloneElement = this._getCloneTemplate();
-    this._elementImg = this._cloneElement.querySelector(".element__img");
-    this._elementText = this._cloneElement.querySelector(".element__text");
-    this._deleteElementButton =
-      this._cloneElement.querySelector(".element__delete");
-    this._likeElement = this._cloneElement.querySelector(".element__like");
-
-    this._elementImg.setAttribute("src", this._link);
-    this._elementImg.setAttribute("alt", this._name);
-
-    this._elementText.textContent = this._name;
-
-    this._setEventListener();
-
-    return this._cloneElement;
   }
 }

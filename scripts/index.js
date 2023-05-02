@@ -1,3 +1,4 @@
+//Импорты
 import {
   initialCards,
   popupButtonCloseRedaction,
@@ -17,12 +18,7 @@ import {
   formInputKyePlacename,
   formInputKyePlacelink,
   elementsContainer,
-  popupOpenSizeContainer,
-  popupElementImg,
-  popupElementText,
   cardTemplate,
-  formInputAdd,
-  formButtonSaveAdd,
   validationConfig,
   formPopupRedaction,
   formPopupAdd,
@@ -30,113 +26,18 @@ import {
 import Card from "./card.js";
 import FormValidator from "./formValidator.js";
 
-// Экземпляр класса формвалидетер для 1ой формы и запуск валидации
+// Экземпляр класса FormValidator для формы изменения профиля
 const formPopupRedactionValidator = new FormValidator(
   validationConfig,
   formPopupRedaction
 );
 formPopupRedactionValidator.enableValidation(); //Запуск валидации
 
-// Экземпляр класса формвалидетер для 2ой формы
+// Экземпляр класса FormValidator для формы редактирования карточек
 const formPopupAddValidator = new FormValidator(validationConfig, formPopupAdd);
 formPopupAddValidator.enableValidation(); //Запуск валидации
 
-// // Объявление переменных
-
-// const popupButtonCloseRedaction = document.querySelector( ПЕРЕНЕСЛИ ВСЕ КОНСТАНТЫ
-//   ".popup__button-close_redaction"
-// );
-// const popupAddButtonClose = document.querySelector(".popup__button-close_add");
-// const popupOpenSizeButtonClose = document.querySelector(
-//   ".popup__button-close_open-size"
-// );
-
-// const popupRedaction = document.querySelector(".popup_redaction");
-// const popupAdd = document.querySelector(".popup_add");
-// const popupOpenSize = document.querySelector(".popup_open-size");
-
-// const formInputKyeUsername = document.querySelector(
-//   ".form__input_kye_username"
-// );
-// const formInputKyeStatus = document.querySelector(".form__input_kye_status");
-
-// const profileButtonEdit = document.querySelector(".profile__button-edit");
-// const profileUsername = document.querySelector(".profile__username");
-// const profileStatus = document.querySelector(".profile__status");
-// const profileButtonPluse = document.querySelector(".profile__button-pluse");
-
-// const formRedaction = document.querySelector(".form_redaction");
-// const formAdd = document.querySelector(".form_add");
-// const formInputKyePlacename = formAdd.querySelector(
-//   ".form__input_kye_placename"
-// );
-// const formInputKyePlacelink = formAdd.querySelector(
-//   ".form__input_kye_placelink"
-// );
-
-// const elementsContainer = document.querySelector(".elements");
-
-// const popupOpenSizeContainer = popupOpenSize.querySelector(
-//   ".popup__container_open-size"
-// );
-// const popupElementImg = popupOpenSize.querySelector(".popup__element-img");
-// const popupElementText = popupOpenSize.querySelector(".popup__element-text");
-
-// const cardTemplate = document.querySelector("#cardTemplete");
-
-// const formInputAdd = formAdd.querySelectorAll(".form__input");
-// const formButtonSaveAdd = formAdd.querySelector(".form__button-save");  ПЕРЕНЕСЛИ ВСЕ КОНСТАНТЫ
-
-// Создание классов
-
-//Реализация проходки по всему массиву данных и их выводу
-initialCards.forEach((card) => {
-  const newCard = new Card(card, cardTemplate);
-  elementsContainer.append(newCard.createCard());
-});
-
-// Функция добавления карточки в контейнер
-
-// Переменные и функции которые могут понадобиться
-
-//Функция добавления карточек из массива
-// function createCard(card) {
-//   const newcard = cardTemplate.content.cloneNode(true); ПЕРЕНЕСЛИ
-
-//   const elementImg = newcard.querySelector(".element__img"); ПЕРЕНЕСЛИ
-//   elementImg.setAttribute("src", card.link); ПЕРЕНЕСЛИ
-//   elementImg.setAttribute("alt", card.name); ПЕРЕНЕСЛИ
-
-//   const elementText = newcard.querySelector(".element__text"); ПЕРЕНЕСЛИ
-//   elementText.textContent = card.name; ПЕРЕНЕСЛИ
-
-//   //Реализуем удаление карточки
-//   const deleteElementButton = newcard.querySelector(".element__delete"); ПЕРЕНЕСЛИ
-//   deleteElementButton.addEventListener("click", deleteCardCick); //Реализуем удаление карточки по клику ПЕРЕНЕСЛИ
-
-//   //Реализуем лайк карточки
-//   const likeElement = newcard.querySelector(".element__like"); ПЕРЕНЕСЛИ
-//   likeElement.addEventListener("click", (event) => { ПЕРЕНЕСЛИ
-//     event.target.classList.toggle("element__like_active"); ПЕРЕНЕСЛИ
-//   });
-
-//   // Реализуем попап открытия картинки   ПЕРЕНЕСЛИ
-//   elementImg.addEventListener("click", () => {  ПЕРЕНЕСЛИ
-//     popupElementImg.src = card.link;  ПЕРЕНЕСЛИ
-//     popupElementImg.alt = card.name;   ПЕРЕНЕСЛИ
-//     popupElementText.textContent = card.name;  ПЕРЕНЕСЛИ
-//     openPopup(popupOpenSize);  ПЕРЕНЕСЛИ
-//   });
-
-//   return newcard; ПЕРЕНЕСЛИ
-// }
-
-//Функция удаления карточек ПЕРЕНЕСЛИ
-// function deleteCardCick(event) { ПЕРЕНЕСЛИ
-//   const buttonDelete = event.target; ПЕРЕНЕСЛИ
-//   const element = buttonDelete.closest(".element"); ПЕРЕНЕСЛИ
-//   element.remove(); ПЕРЕНЕСЛИ
-// } ПЕРЕНЕСЛИ
+// Обьявление функций
 
 //Функция добавления новых карточек
 function handleSubmitAddCardForm(event) {
@@ -151,11 +52,6 @@ function handleSubmitAddCardForm(event) {
   //Очистка импутов после сабмита
   formAdd.reset();
 }
-
-// Реализация отправки изменений из попапа добавления карточек в профиль
-formAdd.addEventListener("submit", handleSubmitAddCardForm);
-
-// Обьявление функций
 
 //Общая функция открытия попапов
 function openPopup(popup) {
@@ -177,7 +73,6 @@ function openPopupRedaction() {
   formInputKyeUsername.value = profileUsername.textContent; //реализуем перенос текста из профиля в попап
   formInputKyeStatus.value = profileStatus.textContent;
   formPopupRedactionValidator.resetFormErrors();
-  // resetFormErrors(formRedaction, validationConfig); //Очистка импутов с ошибкой
 }
 
 // Функция отправки изменений из попапа в профиль
@@ -231,27 +126,6 @@ function closePopupOpenSize() {
   closePopup(popupOpenSize);
 }
 
-// //Функция удаления карточек
-// function deleteCardCick(event) {
-//   const buttonDelete = event.target;
-//   const element = buttonDelete.closest(".element");
-//   element.remove();
-// }
-
-// //Функция добавления новых карточек
-// function handleSubmitAddCardForm(event) {
-//   event.preventDefault();
-//   const placename = formInputKyePlacename.value;
-//   const placelink = formInputKyePlacelink.value;
-//   const newCard = { name: placename, link: placelink };
-//   const card = createCard(newCard);
-//   elementsContainer.prepend(card);
-
-//   closePopup(popupAdd);
-//   //Очистка импутов после сабмита
-//   formAdd.reset();
-// }
-
 //Функция закрытия попапов по клику вне контейнера
 function handleCloseByOverlay(event) {
   if (event.target === event.currentTarget) {
@@ -269,6 +143,12 @@ function closePopupByEsc(event) {
 
 //Реализация добавления обработчиков
 
+//Реализация проходки по всему массиву данных и их выводу
+initialCards.forEach((card) => {
+  const newCard = new Card(card, cardTemplate);
+  elementsContainer.append(newCard.createCard());
+});
+
 // Реализация открытия и закрытия попапа редактирования профиля
 profileButtonEdit.addEventListener("click", openPopupRedaction);
 popupButtonCloseRedaction.addEventListener("click", closePopupRedaction);
@@ -276,24 +156,9 @@ popupButtonCloseRedaction.addEventListener("click", closePopupRedaction);
 // Реализация отправки формы редактирования профиля
 formRedaction.addEventListener("submit", handleSubmitProfileForm);
 
-// //Реализация проходки по всему массиву данных и их выводу
-// initialCards.forEach((card) => {
-//   const newCard = createCard(card);
-//   elementsContainer.append(newCard);
-// });
-
-// // Реализация отправки изменений из попапа добавления карточек в профиль
-// formAdd.addEventListener("submit", handleSubmitAddCardForm);
-
 //Реализация открытия и закрытия попапа редактирования карточек
 profileButtonPluse.addEventListener("click", function () {
   formPopupAddValidator.resetFormErrors();
-  // resetFormErrors(formAdd, validationConfig); //Очистка импутов с ошибкой
-  // toggleButtonState(
-  //   formInputAdd,
-  //   formButtonSaveAdd,
-  //   validationConfig.inactiveButtonClass
-  // );
   openPopup(popupAdd);
 });
 
@@ -312,4 +177,8 @@ popups.forEach((popup) => {
   popup.addEventListener("click", handleCloseByOverlay);
 });
 
+// Реализация отправки изменений из попапа добавления карточек в профиль
+formAdd.addEventListener("submit", handleSubmitAddCardForm);
+
+//Экспорты
 export { openPopup };
