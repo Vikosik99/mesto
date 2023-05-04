@@ -45,12 +45,18 @@ function handleSubmitAddCardForm(event) {
   const placename = formInputKyePlacename.value;
   const placelink = formInputKyePlacelink.value;
   const newCard = { name: placename, link: placelink };
-  const card = new Card(newCard, cardTemplate);
-  elementsContainer.prepend(card.createCard());
+  elementsContainer.prepend(createCard(newCard));
 
   closePopup(popupAdd);
   //Очистка импутов после сабмита
   formAdd.reset();
+}
+
+// Функция добавления новой карточки
+function createCard(item) {
+  const card = new Card(item, cardTemplate);
+  const cardElement = card.createCard();
+  return cardElement;
 }
 
 //Общая функция открытия попапов
@@ -89,38 +95,6 @@ function closePopupRedaction() {
   closePopup(popupRedaction);
 }
 
-// //Функция добавления карточек из массива
-// function createCard(card) {
-//   const newcard = cardTemplate.content.cloneNode(true);
-
-//   const elementImg = newcard.querySelector(".element__img");
-//   elementImg.setAttribute("src", card.link);
-//   elementImg.setAttribute("alt", card.name);
-
-//   const elementText = newcard.querySelector(".element__text");
-//   elementText.textContent = card.name;
-
-//   //Реализуем удаление карточки
-//   const deleteElementButton = newcard.querySelector(".element__delete");
-//   deleteElementButton.addEventListener("click", deleteCardCick); //Реализуем удаление карточки по клику
-
-//   //Реализуем лайк карточки
-//   const likeElement = newcard.querySelector(".element__like");
-//   likeElement.addEventListener("click", (event) => {
-//     event.target.classList.toggle("element__like_active");
-//   });
-
-//   // Реализуем попап открытия картинки
-//   elementImg.addEventListener("click", () => {
-//     popupElementImg.src = card.link;
-//     popupElementImg.alt = card.name;
-//     popupElementText.textContent = card.name;
-//     openPopup(popupOpenSize);
-//   });
-
-//   return newcard;
-// }
-
 //Функция удаления попапа с картинкой
 function closePopupOpenSize() {
   closePopup(popupOpenSize);
@@ -145,8 +119,7 @@ function closePopupByEsc(event) {
 
 //Реализация проходки по всему массиву данных и их выводу
 initialCards.forEach((card) => {
-  const newCard = new Card(card, cardTemplate);
-  elementsContainer.append(newCard.createCard());
+  elementsContainer.append(createCard(card));
 });
 
 // Реализация открытия и закрытия попапа редактирования профиля
@@ -159,6 +132,7 @@ formRedaction.addEventListener("submit", handleSubmitProfileForm);
 //Реализация открытия и закрытия попапа редактирования карточек
 profileButtonPluse.addEventListener("click", function () {
   formPopupAddValidator.resetFormErrors();
+  formPopupAddValidator._toggleButtonState();
   openPopup(popupAdd);
 });
 
