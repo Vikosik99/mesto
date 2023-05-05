@@ -132,7 +132,7 @@ formRedaction.addEventListener("submit", handleSubmitProfileForm);
 //Реализация открытия и закрытия попапа редактирования карточек
 profileButtonPluse.addEventListener("click", function () {
   formPopupAddValidator.resetFormErrors();
-  formPopupAddValidator._toggleButtonState();
+  formPopupAddValidator.toggleButtonState();
   openPopup(popupAdd);
 });
 
