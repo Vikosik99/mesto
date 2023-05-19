@@ -3,16 +3,18 @@ import {
   popupOpenSize,
   popupElementImg,
   popupElementText,
-} from "./constant.js";
-import { openPopup } from "./index.js";
+} from "../utils/constant.js";
+import { handleCardClick } from "../../index.js";
+// import { openPopup } from "./index.js";
 
 //Классы
 export default class Card {
-  constructor(card, cardTemplate) {
+  constructor(card, cardTemplate, handleCardClick) {
     this._card = card;
-    this._name = card.name;
-    this._link = card.link;
+    this._name = card.placename;
+    this._link = card.placelink;
     this._cardTemplate = cardTemplate;
+    this._handleCardClick = handleCardClick;
   }
 
   createCard() {
@@ -55,7 +57,11 @@ export default class Card {
     popupElementImg.src = this._link;
     popupElementImg.alt = this._name;
     popupElementText.textContent = this._name;
-    openPopup(popupOpenSize);
+    // openPopup(popupOpenSize);
+  };
+
+  _openPopupOS = () => {
+    this._handleCardClick(this._card);
   };
 
   _setEventListener() {
@@ -64,6 +70,10 @@ export default class Card {
     // Обработчик лайка
     this._likeElement.addEventListener("click", this._addLike);
     // Обработка открытия попапа с картинкой
-    this._elementImg.addEventListener("click", this._openPopupOpenSize);
+    // this._elementImg.addEventListener("click", this._openPopupOpenSize);
+    this._elementImg.addEventListener("click", this._openPopupOS);
+    // this._elementImg.addEventListener("click", () => {
+    //   this._handleCardClick(this._name, this._link);
+    // });s
   }
 }
