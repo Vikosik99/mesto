@@ -36,18 +36,12 @@ const popupOpenSizeButtonClose = document.querySelector(
   ".popup__button-close_open-size"
 );
 
-const popupRedaction = document.querySelector(".popup_redaction"); // Перенесла в индекс тестово
-const popupAdd = document.querySelector(".popup_add"); // Перенесла в индекс
-const popupOpenSize = document.querySelector(".popup_open-size"); // Перенесла в индекс
-
 const formInputKyeUsername = document.querySelector(
   ".form__input_kye_username"
 );
 const formInputKyeStatus = document.querySelector(".form__input_kye_status");
 
 const profileButtonEdit = document.querySelector(".profile__button-edit");
-const profileUsername = document.querySelector(".profile__username"); // Перенесла в индекс
-const profileStatus = document.querySelector(".profile__status"); // Перенесла в индекс
 const profileButtonPluse = document.querySelector(".profile__button-pluse");
 
 const formRedaction = document.querySelector(".form_redaction");
@@ -59,13 +53,11 @@ const formInputKyePlacelink = formAdd.querySelector(
   ".form__input_kye_placelink"
 );
 
-const elementsContainer = document.querySelector(".elements"); // ПЕРЕНЕСЛИ
-
-const popupOpenSizeContainer = popupOpenSize.querySelector(
+const popupOpenSizeContainer = document.querySelector(
   ".popup__container_open-size"
 );
-const popupElementImg = popupOpenSize.querySelector(".popup__element-img"); // ПЕРЕНЕСЛИ
-const popupElementText = popupOpenSize.querySelector(".popup__element-text"); // ПЕРЕНЕСЛИ
+const popupElementImg = document.querySelector(".popup__element-img"); // ПЕРЕНЕСЛИ
+const popupElementText = document.querySelector(".popup__element-text"); // ПЕРЕНЕСЛИ
 
 const cardTemplate = document.querySelector("#cardTemplete");
 
@@ -90,20 +82,14 @@ export {
   popupButtonCloseRedaction,
   popupAddButtonClose,
   popupOpenSizeButtonClose,
-  popupRedaction,
-  popupAdd,
-  popupOpenSize,
   formInputKyeUsername,
   formInputKyeStatus,
   profileButtonEdit,
-  profileUsername,
-  profileStatus,
   profileButtonPluse,
   formRedaction,
   formAdd,
   formInputKyePlacename,
   formInputKyePlacelink,
-  elementsContainer,
   popupOpenSizeContainer,
   popupElementImg,
   popupElementText,

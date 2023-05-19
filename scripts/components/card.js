@@ -1,11 +1,6 @@
 //Импорты
-import {
-  popupOpenSize,
-  popupElementImg,
-  popupElementText,
-} from "../utils/constant.js";
-import { handleCardClick } from "../../index.js";
-// import { openPopup } from "./index.js";
+import { popupElementImg, popupElementText } from "../utils/constant.js";
+import { handleCardClick } from "../../pages/index.js";
 
 //Классы
 export default class Card {
@@ -70,10 +65,6 @@ export default class Card {
     // Обработчик лайка
     this._likeElement.addEventListener("click", this._addLike);
     // Обработка открытия попапа с картинкой
-    // this._elementImg.addEventListener("click", this._openPopupOpenSize);
     this._elementImg.addEventListener("click", this._openPopupOS);
-    // this._elementImg.addEventListener("click", () => {
-    //   this._handleCardClick(this._name, this._link);
-    // });s
   }
 }

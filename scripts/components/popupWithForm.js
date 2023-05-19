@@ -36,27 +36,3 @@ export default class PopupWithForm extends Popup {
     this._form.reset();
   }
 }
-
-// formRedaction.addEventListener("submit", handleSubmitProfileForm);
-// // Функция отправки изменений из попапа в профиль
-// function handleSubmitProfileForm(event) {
-//     event.preventDefault();
-
-//     // profileUsername.textContent = formInputKyeUsername.value;
-//     // profileStatus.textContent = formInputKyeStatus.value;
-//     closePopup(popupRedaction);
-//   }
-
-// formAdd.addEventListener("submit", handleSubmitAddCardForm);
-// //Функция добавления новых карточек
-// function handleSubmitAddCardForm(event) {
-//     event.preventDefault();
-//     const placename = formInputKyePlacename.value;
-//     const placelink = formInputKyePlacelink.value;
-//     const newCard = { name: placename, link: placelink };
-//     // elementsContainer.prepend(createCard(newCard));
-
-//     closePopup(popupAdd);
-//     //Очистка импутов после сабмита
-//     formAdd.reset();
-//   }

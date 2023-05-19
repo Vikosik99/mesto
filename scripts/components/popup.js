@@ -25,6 +25,7 @@ export default class Popup {
   }
 
   _handleByEscClose = (event) => {
+    //Функция закрытия попапов через esc
     if (event.key === "Escape") {
       this.close();
     }
@@ -35,50 +36,9 @@ export default class Popup {
   };
 
   _handleCloseByOverlay = (event) => {
+    //Функция закрытия попапов при клике на overlay
     if (event.target === event.currentTarget) {
       this.close();
     }
   };
 }
-
-// //Функция закрытия попапов по клику вне контейнера
-// function handleCloseByOverlay(event) {
-//     if (event.target === event.currentTarget) {
-//       closePopup(event.currentTarget);
-//     }
-//   }
-
-// //Реализация закрытия попапов при клике на overlay
-// const popups = Array.from(document.querySelectorAll(".popup"));
-// popups.forEach((popup) => {
-//   popup.addEventListener("click", handleCloseByOverlay);
-// });
-
-// //Функция закрытия попапа redaction
-// function closePopupRedaction() {
-//     closePopup(popupRedaction);
-//   }
-// // Реализация открытия и закрытия попапа редактирования профиля
-// profileButtonEdit.addEventListener("click", openPopupRedaction);
-// popupButtonCloseRedaction.addEventListener("click", closePopupRedaction);
-
-// //Общая функция открытия попапов
-// function openPopup(popup) {
-//     popup.classList.add("popup_opened");
-//     //Реализация закрытия попапов через esc
-//     document.addEventListener("keydown", closePopupByEsc);
-//   }
-
-//   //Общая функция закрытия попапов
-// function closePopup(popup) {
-//     popup.classList.remove("popup_opened");
-//     //Реализация закрытия попапов через esc
-//     document.removeEventListener("keydown", closePopupByEsc);
-//   }
-// //Функция закрытия попапов по нажатию на esc
-// function closePopupByEsc(event) {
-//   if (event.key === "Escape") {
-//     const poppupClose = document.querySelector(".popup_opened");
-//     closePopup(poppupClose);
-//   }
-// }

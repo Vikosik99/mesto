@@ -10,6 +10,7 @@ export default class UserInfo {
   }
 
   getUserInfo() {
+    //Функция переноса текста из профиля в попап
     return {
       username: this._profileUsername.textContent,
       status: this._profileStatus.textContent,
@@ -17,24 +18,8 @@ export default class UserInfo {
   }
 
   setUserInfo(infoUser) {
+    //Функция отправки изменений из попапа в профиль
     this._profileUsername.textContent = infoUser.username;
     this._profileStatus.textContent = infoUser.status;
   }
 }
-
-// function openPopupRedaction() {
-//   // test.open(); //ТЕСТОВОЕ
-//   // openPopup(popupRedaction);
-//   formInputKyeUsername.value = profileUsername.textContent; //реализуем перенос текста из профиля в попап
-//   formInputKyeStatus.value = profileStatus.textContent;
-//   formPopupRedactionValidator.resetFormErrors();
-// }
-
-// // Функция отправки изменений из попапа в профиль
-// function handleSubmitProfileForm(event) {
-//     event.preventDefault();
-
-//     profileUsername.textContent = formInputKyeUsername.value;
-//     profileStatus.textContent = formInputKyeStatus.value;
-//     closePopup(popupRedaction);
-//   }

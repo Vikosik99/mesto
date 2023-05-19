@@ -18,11 +18,3 @@ export default class PopupWithImage extends Popup {
     super.open();
   };
 }
-
-//  // Функция открытия попапа с картинкой
-//  _openPopupOpenSize = () => {
-//     popupElementImg.src = this._link;
-//     popupElementImg.alt = this._name;
-//     popupElementText.textContent = this._name;
-//     // openPopup(popupOpenSize);
-//   };
