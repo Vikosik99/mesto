@@ -3,19 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./pages/index.css" rel="stylesheet" />
     <title>Mesto</title>
   </head>
   <body class="page">
     <header class="header">
-      <img class="logo" src="./images/logo-header.svg" alt="логотип" />
+      <img
+        class="logo"
+        src="<%=require('./images/logo-header.svg')%>"
+        alt="логотип"
+      />
     </header>
     <main class="content">
       <section class="profile">
         <div class="profile__card">
           <img
             class="profile__avatar"
-            src="./images/image-avatar.jpg"
+            src="<%=require('./images/image-avatar.jpg')%>"
             alt="аватар"
           />
           <div class="profile__info">
@@ -24,7 +27,7 @@
               <button type="button" class="profile__button-edit">
                 <img
                   class="profile__pencil"
-                  src="./images/vector-pencil.svg"
+                  src="<%=require('./images/vector-pencil.svg')%>"
                   alt="ручка"
                 />
               </button>
@@ -35,7 +38,7 @@
         <button type="button" class="profile__button-pluse">
           <img
             class="profile__pluse"
-            src="./images/vector-plus.svg"
+            src="<%=require('./images/vector-plus.svg')%>"
             alt="плюс"
           />
         </button>
@@ -49,7 +52,7 @@
           >
             <img
               class="popup__close"
-              src="./images/icon-close.svg"
+              src="<%=require('./images/icon-close.svg')%>"
               alt="крест"
             />
           </button>
@@ -93,7 +96,7 @@
           >
             <img
               class="popup__close"
-              src="./images/icon-close.svg"
+              src="<%=require('./images/icon-close.svg')%>"
               alt="крест"
             />
           </button>
@@ -135,7 +138,7 @@
           >
             <img
               class="popup__close"
-              src="./images/icon-close.svg"
+              src="<%=require('./images/icon-close.svg')%>"
               alt="крест"
             />
           </button>

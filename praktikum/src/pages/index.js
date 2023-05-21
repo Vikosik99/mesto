@@ -18,13 +18,14 @@ import {
   formPopupAdd,
   popupElementImg,
   popupElementText,
-} from "../scripts/utils/constant.js";
-import Card from "../scripts/components/card.js";
-import FormValidator from "../scripts/components/formValidator.js";
-import PopupWithImage from "../scripts/components/popupWithImage.js";
-import Section from "../scripts/components/sectoin.js";
-import UserInfo from "../scripts/components/userInfo.js";
-import PopupWithForm from "../scripts/components/popupWithForm.js";
+} from "../../src/scripts/utils/constant.js";
+import Card from "../../src/scripts/components/card.js";
+import FormValidator from "../../src/scripts/components/formValidator.js";
+import PopupWithImage from "../../src/scripts/components/popupWithImage.js";
+import Section from "../../src/scripts/components/sectoin.js";
+import UserInfo from "../../src/scripts/components/userInfo.js";
+import PopupWithForm from "../../src/scripts/components/popupWithForm.js";
+import "../pages/index.css"; // добавьте импорт главного файла стилей
 
 // //Селектора
 const popupRedactionSelector = ".popup_redaction";
