@@ -42,7 +42,7 @@ const section = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const card = new Card(item, cardTemplate, openPopupOpenSize.open);
+      const card = new Card(item, cardTemplate, popupOpenSizeForm.open);
       const cardElement = card.createCard();
       return cardElement;
     },
@@ -51,8 +51,8 @@ const section = new Section(
 );
 
 // Попап открытия картинки
-const openPopupOpenSize = new PopupWithImage(popupOpenSizeSelector);
-openPopupOpenSize.setEventListeners();
+const popupOpenSizeForm = new PopupWithImage(popupOpenSizeSelector);
+popupOpenSizeForm.setEventListeners();
 
 const userInfo = new UserInfo(userInfoSelectors);
 
@@ -99,8 +99,7 @@ function openPopupRedaction() {
 
 //Функция удаления попапа с картинкой
 function closePopupOpenSize() {
-  // closePopup(popupOpenSize);
-  openPopupOpenSize.close;
+  popupOpenSizeForm.close;
 }
 
 //Реализация добавления обработчиков

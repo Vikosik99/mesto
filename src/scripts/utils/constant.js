@@ -1,28 +1,35 @@
 //Массив
+import archizImage from "../../images/image-card-archiz.jpeg";
+import tiberdaImage from "../../images/image-card-tiberda.jpeg";
+import dombayLImage from "../../images/image-card-dombay-l.jpeg";
+import krasnodarImage from "../../images/image-card-krasnodar.jpeg";
+import dombayZImage from "../../images/image-card-dombay-z.jpeg";
+import yaltaImage from "../../images/image-card-yalta.jpeg";
+
 const initialCards = [
   {
     placename: "Архыз",
-    placelink: "./images/image-card-archiz.jpeg",
+    placelink: archizImage,
   },
   {
     placename: "Тиберда",
-    placelink: "./images/image-card-tiberda.jpeg",
+    placelink: tiberdaImage,
   },
   {
     placename: "Домбай",
-    placelink: "./images/image-card-dombay-l.jpeg",
+    placelink: dombayLImage,
   },
   {
     placename: "Краснодар",
-    placelink: "./images/image-card-krasnodar.jpeg",
+    placelink: krasnodarImage,
   },
   {
     placename: "Домбай зимой",
-    placelink: "./images/image-card-dombay-z.jpeg",
+    placelink: dombayZImage,
   },
   {
     placename: "Ялта",
-    placelink: "./images/image-card-yalta.jpeg",
+    placelink: yaltaImage,
   },
 ];
 

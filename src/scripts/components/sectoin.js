@@ -15,12 +15,6 @@ export default class Section {
     this._elementsContainer.append(this._renderer(elementDom));
   }
 
-  createCardFromArrayNew() {
-    this._initialCards.forEach((card) => {
-      this.addItem(card);
-    });
-  }
-
   addItemNew(elementDom) {
     this._elementsContainer.prepend(this._renderer(elementDom));
   }

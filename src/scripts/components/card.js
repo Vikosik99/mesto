@@ -1,7 +1,3 @@
-//Импорты
-import { popupElementImg, popupElementText } from "../utils/constant.js";
-import { handleCardClick } from "../../pages/index.js";
-
 //Классы
 export default class Card {
   constructor(card, cardTemplate, handleCardClick) {
@@ -31,29 +27,21 @@ export default class Card {
   }
 
   _getCloneTemplate() {
-    const newcard = this._cardTemplate.content.cloneNode(true);
+    const newcard = this._cardTemplate.content
+      .querySelector(".element")
+      .cloneNode(true);
     return newcard;
   }
 
   // Функция удаления карточек
-  _deleteCardCick(event) {
-    const buttonDelete = event.target;
-    const element = buttonDelete.closest(".element");
-    element.remove();
-  }
+  _deleteCardCick = () => {
+    this._cloneElement.remove();
+  };
 
   // Функция добавления лайка
   _addLike(event) {
     event.target.classList.toggle("element__like_active");
   }
-
-  // Функция открытия попапа с картинкой
-  _openPopupOpenSize = () => {
-    popupElementImg.src = this._link;
-    popupElementImg.alt = this._name;
-    popupElementText.textContent = this._name;
-    // openPopup(popupOpenSize);
-  };
 
   _openPopupOS = () => {
     this._handleCardClick(this._card);
