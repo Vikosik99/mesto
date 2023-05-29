@@ -16,11 +16,13 @@
     <main class="content">
       <section class="profile">
         <div class="profile__card">
-          <img
-            class="profile__avatar"
-            src="<%=require('./images/image-avatar.jpg')%>"
-            alt="аватар"
-          />
+          <button type="button" class="profile__avatar-button">
+            <img
+              class="profile__avatar"
+              src="<%=require('./images/image-avatar.jpg')%>"
+              alt="аватар"
+            />
+          </button>
           <div class="profile__info">
             <div class="profile__flex">
               <h1 class="profile__username">Жак-Ив Кусто</h1>
@@ -144,6 +146,60 @@
           </button>
           <img class="popup__element-img" />
           <h2 class="popup__element-text"></h2>
+        </div>
+      </div>
+      <div class="popup popup_sure">
+        <div class="popup__container popup__container_sure">
+          <button
+            type="button"
+            class="popup__button-close popup__button-close_sure"
+          >
+            <img
+              class="popup__close"
+              src="<%=require('./images/icon-close.svg')%>"
+              alt="крест"
+            />
+          </button>
+          <h2 class="form__caption">Вы уверены?</h2>
+          <button
+            type="submit"
+            class="form__button-save form__button-save_sure"
+          >
+            Да
+          </button>
+        </div>
+      </div>
+      <div class="popup popup_change-avatar">
+        <div class="popup__container popup__container_change-avatar">
+          <button
+            type="button"
+            class="popup__button-close popup__button-close_change-avatar"
+          >
+            <img
+              class="popup__close"
+              src="<%=require('./images/icon-close.svg')%>"
+              alt="крест"
+            />
+          </button>
+          <form
+            class="form form_change-avatar"
+            name="formChangeAvatar"
+            novalidate
+          >
+            <h2 class="form__caption">Обновить аватар</h2>
+            <input
+              type="url"
+              name="avatarlink"
+              id="avatarlink"
+              class="form__input form__input_change-avatar form__input_kye_avatarlink"
+              placeholder="Ссылка на картинку"
+              required
+            />
+            <span
+              class="form__input-error form__input-error_type_avatarlink"
+            ></span>
+            <button type="submit" class="form__button-save">Сохранить</button>
+          </form>
         </div>
       </div>
     </main>

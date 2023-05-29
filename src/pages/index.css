@@ -56,14 +56,11 @@
 @import url(../blocks/form/__button-save/_valid/form__button-save_valid.css);
 @import url(../blocks/form/__input-error/form__input-error.css);
 @import url(../blocks/form/__input-error/_visible/form__input-error_visible.css);
-
-
-
-
-
-
-
-
-
-
-
+@import url(../blocks/profile/__avatar-button/profile__avatar-button.css);
+@import url(../blocks/popup/_sure/popup_sure.css);
+@import url(../blocks/popup/_sure/_opened/popup_sure_opened.css);
+@import url(../blocks/popup/__container/_sure/popup__container_sure.css);
+@import url(../blocks/form/__button-save/_sure/form__button-save_sure.css);
+@import url(../blocks/popup/_change-avatar/popup_change-avatar.css);
+@import url(../blocks/popup/_change-avatar/_opened/popup_change-avatar_opened.css);
+@import url(../blocks/popup/__container/_change-avatar/popup__container_change-avatar.css);

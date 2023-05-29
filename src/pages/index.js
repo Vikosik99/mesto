@@ -25,6 +25,7 @@ import PopupWithImage from "../../src/scripts/components/popupWithImage.js";
 import Section from "../../src/scripts/components/sectoin.js";
 import UserInfo from "../../src/scripts/components/userInfo.js";
 import PopupWithForm from "../../src/scripts/components/popupWithForm.js";
+import Api from "../../src/scripts/utils/api.js";
 import "../pages/index.css"; // добавьте импорт главного файла стилей
 
 // //Селектора
@@ -37,6 +38,24 @@ const userInfoSelectors = {
   profileUsername: ".profile__username",
   profileStatus: ".profile__status",
 };
+
+const api = new Api({
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-66",
+  headers: {
+    authorization: "b6c4512c-817a-42b9-b0f0-214f2963b61f",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getInitialCards()
+  .then((res) => console.log(res)) // вот сюда получим уже обработанные данные если ошибки нет
+  .catch((err) => console.log(err));
+
+api
+  .getCards()
+  .then((res) => console.log(res)) // вот сюда получим уже обработанные данные если ошибки нет
+  .catch((err) => console.log(err));
 
 const section = new Section(
   {

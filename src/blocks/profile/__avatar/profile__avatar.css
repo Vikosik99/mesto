@@ -4,4 +4,7 @@
   border-radius: 50%;
   box-sizing: border-box;
   object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
