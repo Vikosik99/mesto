@@ -7,6 +7,9 @@ export default class UserInfo {
     this._profileStatus = document.querySelector(
       this._userInfoSelectors.profileStatus
     );
+    this._profileAvatar = document.querySelector(
+      this._userInfoSelectors.profileAvatar
+    );
   }
 
   getUserInfo() {
@@ -17,9 +20,10 @@ export default class UserInfo {
     };
   }
 
-  setUserInfo(infoUser) {
+  setUserInfo({ avatar, username, status }) {
+    this._profileAvatar.src = avatar;
     //Функция отправки изменений из попапа в профиль
-    this._profileUsername.textContent = infoUser.username;
-    this._profileStatus.textContent = infoUser.status;
+    this._profileUsername.textContent = username;
+    this._profileStatus.textContent = status;
   }
 }

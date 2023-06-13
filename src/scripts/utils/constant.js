@@ -50,6 +50,8 @@ const formInputKyeStatus = document.querySelector(".form__input_kye_status");
 
 const profileButtonEdit = document.querySelector(".profile__button-edit");
 const profileButtonPluse = document.querySelector(".profile__button-pluse");
+const profileAvatarButton = document.querySelector(".profile__avatar-button");
+const deleteElementButton = document.querySelector(".element__delete");
 
 const formRedaction = document.querySelector(".form_redaction");
 const formAdd = document.querySelector(".form_add");
@@ -82,6 +84,7 @@ const validationConfig = {
 
 const formPopupRedaction = document.forms.formPopup;
 const formPopupAdd = document.forms.formAddPopup;
+const formChangeAvatar = document.forms.formChangeAvatar;
 
 // Экспорт всех переменных
 export {
@@ -106,4 +109,7 @@ export {
   validationConfig,
   formPopupRedaction,
   formPopupAdd,
+  profileAvatarButton,
+  formChangeAvatar,
+  deleteElementButton,
 };

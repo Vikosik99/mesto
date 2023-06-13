@@ -64,3 +64,5 @@
 @import url(../blocks/popup/_change-avatar/popup_change-avatar.css);
 @import url(../blocks/popup/_change-avatar/_opened/popup_change-avatar_opened.css);
 @import url(../blocks/popup/__container/_change-avatar/popup__container_change-avatar.css);
+@import url(../blocks/element/__like-text/element__like-text.css);
+@import url(../blocks/element/__like-container/element__like-container.css);

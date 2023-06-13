@@ -6,6 +6,8 @@ export default class PopupWithForm extends Popup {
     this._colbeckSubmitForm = colbeckSubmitForm;
     this._form = this._popupSelector.querySelector(".form");
     this._inputAll = this._form.querySelectorAll(".form__input");
+    this._formButtonSave = this._form.querySelector(".form__button-save");
+    this._formButtonSaveDefault = this._formButtonSave.textContent;
   }
 
   _getInputValues() {
@@ -26,9 +28,14 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
     this._form.addEventListener("submit", (event) => {
       event.preventDefault();
+      this._formButtonSave.textContent = `${this._formButtonSave.textContent}...`;
       this._colbeckSubmitForm(this._getInputValues());
       this.close();
     });
+  }
+
+  setDefault() {
+    this._formButtonSave.textContent = this._formButtonSaveDefault;
   }
 
   close() {

@@ -17,15 +17,11 @@
       <section class="profile">
         <div class="profile__card">
           <button type="button" class="profile__avatar-button">
-            <img
-              class="profile__avatar"
-              src="<%=require('./images/image-avatar.jpg')%>"
-              alt="аватар"
-            />
+            <img class="profile__avatar" src="#" alt="аватар" />
           </button>
           <div class="profile__info">
             <div class="profile__flex">
-              <h1 class="profile__username">Жак-Ив Кусто</h1>
+              <h1 class="profile__username"></h1>
               <button type="button" class="profile__button-edit">
                 <img
                   class="profile__pencil"
@@ -34,7 +30,7 @@
                 />
               </button>
             </div>
-            <p class="profile__status">Исследователь океана</p>
+            <p class="profile__status"></p>
           </div>
         </div>
         <button type="button" class="profile__button-pluse">
@@ -212,10 +208,13 @@
         <img class="element__img" />
         <div class="element__mesto">
           <h2 class="element__text"></h2>
-          <button
-            type="button"
-            class="element__like element__like_active"
-          ></button>
+          <div class="element__like-container">
+            <button
+              type="button"
+              class="element__like element__like_active"
+            ></button>
+            <span class="element__like-text"></span>
+          </div>
         </div>
       </article>
     </template>
