@@ -88,6 +88,20 @@ const formPopupAdd = document.forms.formAddPopup;
 const formChangeAvatar = document.forms.formChangeAvatar;
 const formSure = document.forms.formSure;
 
+// //Селектора
+const popupRedactionSelector = ".popup_redaction";
+const popupOpenSizeSelector = ".popup_open-size";
+const popupAddSelector = ".popup_add";
+const popupChangeAvatarSelector = ".popup_change-avatar";
+const popupSureSelector = ".popup_sure";
+
+const elementsContainerSelector = ".elements";
+const userInfoSelectors = {
+  profileUsername: ".profile__username",
+  profileStatus: ".profile__status",
+  profileAvatar: ".profile__avatar",
+};
+
 // Экспорт всех переменных
 export {
   initialCards,
@@ -116,4 +130,11 @@ export {
   deleteElementButton,
   formSure,
   deleteSure,
+  popupRedactionSelector,
+  popupOpenSizeSelector,
+  popupAddSelector,
+  popupChangeAvatarSelector,
+  popupSureSelector,
+  elementsContainerSelector,
+  userInfoSelectors,
 };

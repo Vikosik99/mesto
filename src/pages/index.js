@@ -23,6 +23,13 @@ import {
   deleteElementButton,
   formSure,
   deleteSure,
+  popupRedactionSelector,
+  popupOpenSizeSelector,
+  popupAddSelector,
+  popupChangeAvatarSelector,
+  popupSureSelector,
+  elementsContainerSelector,
+  userInfoSelectors,
 } from "../../src/scripts/utils/constant.js";
 import Card from "../../src/scripts/components/card.js";
 import FormValidator from "../../src/scripts/components/formValidator.js";
@@ -34,20 +41,6 @@ import PopupWithFormDelete from "../../src/scripts/components/popupWithFormDelet
 import Api from "../../src/scripts/utils/api.js";
 import "../pages/index.css"; // добавьте импорт главного файла стилей
 
-// //Селектора
-const popupRedactionSelector = ".popup_redaction";
-const popupOpenSizeSelector = ".popup_open-size";
-const popupAddSelector = ".popup_add";
-const popupChangeAvatarSelector = ".popup_change-avatar";
-const popupSureSelector = ".popup_sure";
-
-const elementsContainerSelector = ".elements";
-const userInfoSelectors = {
-  profileUsername: ".profile__username",
-  profileStatus: ".profile__status",
-  profileAvatar: ".profile__avatar",
-};
-
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-66",
   headers: {
@@ -55,6 +48,8 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+const userId = api.getInitialCards();
 
 function createCardServer(element) {
   const card = new Card(
@@ -68,11 +63,14 @@ function createCardServer(element) {
           .then((res) => {
             card.addLikePublic(res.likes);
           })
-          .catch((err) => console.log(err));
+          .catch((err) => console.log(`При добавлении лайка: ${err}`));
       } else {
-        api.deleteLike(cardId).then((res) => {
-          card.addLikePublic(res.likes);
-        });
+        api
+          .deleteLike(cardId)
+          .then((res) => {
+            card.addLikePublic(res.likes);
+          })
+          .catch((err) => console.log(`При удалении лайка: ${err}`));
       }
     },
     (id) => {
@@ -114,20 +112,20 @@ const popupRedactionForm = new PopupWithForm(popupRedactionSelector, (data) => {
         username: res.name,
       });
     }) // вот сюда получим уже обработанные данные если ошибки нет
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(`При передачи данных на страницу: ${err}`))
     .finally(() => popupRedactionForm.setDefault());
 });
 popupRedactionForm.setEventListeners();
 
 //Попап добавления карточек
 const popupAddForm = new PopupWithForm(popupAddSelector, (data) => {
-  Promise.all([api.getInitialCards(), api.createNewCard(data)])
+  Promise.all([userId, api.createNewCard(data)])
     .then(([dataUserServer, dataCardServer]) => {
       dataCardServer.userid = dataUserServer._id;
       section.addItemNew(createCardServer(dataCardServer));
       popupAddForm.close();
     })
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(`При добавлении карточек: ${err}`))
     .finally(() => popupAddForm.setDefault());
 });
 popupAddForm.setEventListeners();
@@ -145,7 +143,8 @@ const popupChangeAvatarForm = new PopupWithForm(
           username: res.name,
         });
       }) // вот сюда получим уже обработанные данные если ошибки нет
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(`При обновлении аватара: ${err}`))
+
       .finally(() => popupChangeAvatarForm.setDefault());
   }
 );
@@ -172,9 +171,8 @@ formChangeAvatarValidator.enableValidation(); //Запуск валидации
 // Обьявление функций
 
 function handleCardClick(card) {
-  popupElementImg.src = card.link;
-  popupElementImg.alt = card.name;
-  popupElementText.textContent = card.name;
+  const handleCard = new PopupWithImage(card);
+  handleCard.open();
 }
 
 //Функция переноса текста из профиля в попап
@@ -218,8 +216,8 @@ popupAddButtonClose.addEventListener("click", function () {
 //Реализация закрытия попапа с картинкой
 popupOpenSizeButtonClose.addEventListener("click", closePopupOpenSize);
 
-Promise.all([api.getInitialCards(), api.getCards()]).then(
-  ([dataUserServer, dataCardServer]) => {
+Promise.all([userId, api.getCards()])
+  .then(([dataUserServer, dataCardServer]) => {
     dataCardServer.forEach((element) => (element.userid = dataUserServer._id)); // Реализация определения id юзера
 
     userInfo.setUserInfo({
@@ -228,10 +226,9 @@ Promise.all([api.getInitialCards(), api.getCards()]).then(
       avatar: dataUserServer.avatar,
       username: dataUserServer.name,
     });
-
     section.createCardFromArray(dataCardServer);
-  }
-);
+  })
+  .catch((err) => console.log(`При переносе данных с сервера: ${err}`));
 
 //Экспорты
 

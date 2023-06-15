@@ -19,9 +19,6 @@ export default class PopupWithFormDelete extends Popup {
       this.close();
     });
   }
-  close() {
-    super.close();
-  }
 
   open() {
     super.open();

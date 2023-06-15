@@ -5,11 +5,13 @@ export default class Card {
     cardTemplate,
     handleCardClick,
     conditionLike,
-    handleDeleteCard
+    handleDeleteCard,
+    userId
   ) {
     this._name = dataUserServer.name;
     this._link = dataUserServer.link;
     this._userid = dataUserServer.userid;
+    this.userid = userId;
     this._otherUserid = dataUserServer.owner._id;
     this._likes = dataUserServer.likes; // вытащи из данных карточки массив лайков и сохрани его в отдельном свойстве
     this._arrayLengthLike = dataUserServer.likes.length;
