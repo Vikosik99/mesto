@@ -60,12 +60,12 @@
 .popup_sure{position:fixed}
 .popup_sure_opened{display:flex;opacity:1;visibility:visible}
 .popup__container_sure{padding:34px 0 36px;width:430px}@media screen and (max-width:525px){.popup__container_sure{gap:16px 0;justify-items:end;width:282px}}
-.form__button-save__sure{background-color:#000;color:#fff;cursor:pointer}
+.form__button-save_sure{background-color:#000;color:#fff;cursor:pointer}
 .popup_change-avatar{position:fixed}
 .popup_change-avatar_opened{display:flex;opacity:1;visibility:visible}
 .popup__container_change-avatar{width:430px}@media screen and (max-width:525px){.popup__container_change-avatar{gap:16px 0;justify-items:end;width:282px}}
 .element__like-text{box-sizing:border-box;font-family:Inter,Arial,sans-serif;font-size:13px;font-style:normal;font-weight:400;line-height:16px;margin:0;max-width:219px;overflow:hidden;padding:0;text-align:center;text-overflow:ellipsis;white-space:nowrap}
 .element__like-container{display:flex;flex-direction:column}
 .form_sure{margin:0;padding:0}
-.form__caption__sure{margin-bottom:22px}
+.form__caption_sure{margin-bottom:22px}
 
