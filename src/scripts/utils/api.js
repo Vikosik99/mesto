@@ -87,14 +87,11 @@ export default class Api {
     ).then(this._checkRes);
   }
 
-  deleteCard(cardId) {
-    return fetch(
-      `https://mesto.nomoreparties.co/v1/cohort-66/cards/${cardId}`,
-      {
-        method: "DELETE",
-        headers: this._headers,
-      }
-    ).then(this._checkRes);
+  deleteCard(id) {
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-66/cards/${id}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkRes);
   }
 }
 

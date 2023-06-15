@@ -52,6 +52,7 @@ const profileButtonEdit = document.querySelector(".profile__button-edit");
 const profileButtonPluse = document.querySelector(".profile__button-pluse");
 const profileAvatarButton = document.querySelector(".profile__avatar-button");
 const deleteElementButton = document.querySelector(".element__delete");
+const deleteSure = document.querySelector(".form__button-save_sure");
 
 const formRedaction = document.querySelector(".form_redaction");
 const formAdd = document.querySelector(".form_add");
@@ -85,6 +86,7 @@ const validationConfig = {
 const formPopupRedaction = document.forms.formPopup;
 const formPopupAdd = document.forms.formAddPopup;
 const formChangeAvatar = document.forms.formChangeAvatar;
+const formSure = document.forms.formSure;
 
 // Экспорт всех переменных
 export {
@@ -112,4 +114,6 @@ export {
   profileAvatarButton,
   formChangeAvatar,
   deleteElementButton,
+  formSure,
+  deleteSure,
 };

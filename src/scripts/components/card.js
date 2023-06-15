@@ -7,7 +7,6 @@ export default class Card {
     conditionLike,
     handleDeleteCard
   ) {
-    // this._card = card;
     this._name = dataUserServer.name;
     this._link = dataUserServer.link;
     this._userid = dataUserServer.userid;
@@ -55,9 +54,7 @@ export default class Card {
   }
 
   // // Функция удаления карточек
-  _deleteCardCick = () => {
-    // const buttonDelete = event.target;
-    // const element = buttonDelete.closest(".element");
+  deleteCard = () => {
     this._cloneElement.remove();
     this._cloneElement = null;
   };
@@ -65,11 +62,9 @@ export default class Card {
   // Функция добавления лайка
   _addLike = () => {
     this._conditionLike(this._likeElement, this._cardId);
-    // event.target.classList.toggle("element__like_active");
   };
 
-  addLikeP(likes) {
-    // likes.target.classList.toggle("element__like_active");
+  addLikePublic(likes) {
     this._likeElement.classList.toggle("element__like_active");
     this._likeCounter.textContent = likes.length;
   }
@@ -80,10 +75,9 @@ export default class Card {
 
   _setEventListener() {
     // Обработчик открытия попапа sure
-    this._deleteElementButton.addEventListener("click", this._handleDeleteCard);
-    // Обработчик удаления карточки
-    this._formButtonSaveSure.addEventListener("click", this._deleteCardCick);
-
+    this._deleteElementButton.addEventListener("click", () =>
+      this._handleDeleteCard(this._cardId)
+    );
     // // Обработчик лайка
     this._likeElement.addEventListener("click", this._addLike);
     // Обработка открытия попапа с картинкой
@@ -103,54 +97,7 @@ export default class Card {
         this._likeElement.classList.add("element__like_active");
         return;
       }
-      //  else {
-      //   this._likeElement.classList.remove("element__like_active");
-      // }
     });
     this._likeCounter.textContent = this._arrayLengthLike;
   }
-
-  // Проверка статуса лайка
-  //  отвечать за обновление счетчика лайков. этот метод будет отвечать полностью за визуальное отображение лайков
-  // _clike() {
-  //   return (
-  //     this._like.filter((item) => {
-  //       item._id === this._userid;
-  //     })
-  //   );
-  // }
-
-  // _checkStatusLike(event) {
-  //   this._clike = event.this._like.filter((item) => {
-  //     return item._id === this.userid;
-  //   });
-
-  //   this._cloneElement.querySelector(".element__like-text").textContent =
-  //     this._like.lenght;
-
-  //   if (this._clike()) {
-  //     this._likeElement.classList.add("element__like_active");
-  //     return;
-  //   } else {
-  //     this._likeElement.classList.remove("element__like_active");
-  //   }
-  // }
-
-  // setLikesInfo(){
-  // - обновлять массив лайков в свойствах класса
-  // - вызывать метод о котором я написал в начале (его надо использовать и при обновлении лайков, и при начальной отрисовке)
-  // }
 }
-
-// вот что этот метод должен делать:
-// - выставлять нужное количество лайков в счетчик
-// - проверять, есть ли среди лайков тот, который был поставлен текущим пользователем и исходя из этого выставлять нужный класс индикатору лайка
-
-// при лайке - тебе надо:
-// - вызывать метод отправки лайков
-// - получать ответ сервера
-// - при корректном ответе, надо взять новый массив лайков и передавать этот массив в отдельный публичный метод
-
-// то есть, надо написать по крайней мере два новых метода
-// - один для визуальной отрисовки контейнера с лайками
-// - один для обновления информации по лайкам (и вызова первого метода)

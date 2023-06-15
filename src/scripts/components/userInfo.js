@@ -20,7 +20,7 @@ export default class UserInfo {
     };
   }
 
-  setUserInfo({ avatar, username, status }) {
+  setUserInfo({ avatar, username, status, id }) {
     this._profileAvatar.src = avatar;
     //Функция отправки изменений из попапа в профиль
     this._profileUsername.textContent = username;

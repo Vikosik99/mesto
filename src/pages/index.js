@@ -21,6 +21,8 @@ import {
   profileAvatarButton,
   formChangeAvatar,
   deleteElementButton,
+  formSure,
+  deleteSure,
 } from "../../src/scripts/utils/constant.js";
 import Card from "../../src/scripts/components/card.js";
 import FormValidator from "../../src/scripts/components/formValidator.js";
@@ -54,16 +56,6 @@ const api = new Api({
   },
 });
 
-// api
-//   .getInitialCards()
-//   .then((res) => console.log(res)) // вот сюда получим уже обработанные данные если ошибки нет
-//   .catch((err) => console.log(err));
-
-// api
-//   .getCards()
-//   .then((res) => console.log(res)) // вот сюда получим уже обработанные данные если ошибки нет
-//   .catch((err) => console.log(err));
-
 function createCardServer(element) {
   const card = new Card(
     element,
@@ -74,21 +66,20 @@ function createCardServer(element) {
         api
           .addLike(cardId)
           .then((res) => {
-            card.addLikeP(res.likes);
+            card.addLikePublic(res.likes);
           })
           .catch((err) => console.log(err));
       } else {
         api.deleteLike(cardId).then((res) => {
-          card.addLikeP(res.likes);
+          card.addLikePublic(res.likes);
         });
       }
     },
-    // handleDeleteIconClick:
-    () => {
+    (id) => {
       popupSureForm.open();
       popupSureForm.setSubmitAction(() => {
         api
-          .deleteCard(cardData._id)
+          .deleteCard(id)
           .then(() => {
             card.deleteCard();
             popupSureForm.close();
@@ -100,31 +91,10 @@ function createCardServer(element) {
   const cardElement = card.createCard();
   return cardElement;
 }
-// popup - это твой попап удаления карточки
-// cardData - данные карточки на основе которых она создается
-// card - экземпляр класса Card
-// () => {
-//   popupSureForm.open();
-//   popupSureForm.setSubmitAction(() => {
-//     api
-//       .deleteCard(cardId)
-//       .then(() => {
-//         cardId.deleteCard();
-//         popupSureSelector.close();
-//       })
-//       .catch((err) => console.log(err));
-//   });
-// }
-const section = new Section(
-  // items: initialCards,
-  (item) => {
-    section.addItem(createCardServer(item));
-    // const card = new Card(cardTemplate, popupOpenSizeForm.open);
-    // const cardElement = card.createCard();
-    // return cardElement;
-  },
-  elementsContainerSelector
-);
+
+const section = new Section((item) => {
+  section.addItem(createCardServer(item));
+}, elementsContainerSelector);
 
 // Попап открытия картинки
 const popupOpenSizeForm = new PopupWithImage(popupOpenSizeSelector);
@@ -146,27 +116,8 @@ const popupRedactionForm = new PopupWithForm(popupRedactionSelector, (data) => {
     }) // вот сюда получим уже обработанные данные если ошибки нет
     .catch((err) => console.log(err))
     .finally(() => popupRedactionForm.setDefault());
-
-  // userInfo.setUserInfo(data);
 });
 popupRedactionForm.setEventListeners();
-
-// //Попап добавления карточек
-// const popupAddForm = new PopupWithForm(popupAddSelector, (data) => {
-//   createNewCard(data)
-//   section.addItemNew(createCardServer(data));
-//   popupAddForm.close();
-// });
-// popupAddForm.setEventListeners();
-
-// // // //Попап добавления карточек
-// const popupAddForm = new PopupWithForm(popupAddSelector, (data) => {
-//   api.createNewCard(data).then((res) => {
-//     createNewCard(res);
-//     popupAddForm.close();
-//   });
-// });
-// popupAddForm.setEventListeners();
 
 //Попап добавления карточек
 const popupAddForm = new PopupWithForm(popupAddSelector, (data) => {
@@ -178,8 +129,6 @@ const popupAddForm = new PopupWithForm(popupAddSelector, (data) => {
     })
     .catch((err) => console.log(err))
     .finally(() => popupAddForm.setDefault());
-  // createNewCard(data)
-  // section.addItemNew(createCardServer(data));
 });
 popupAddForm.setEventListeners();
 
@@ -201,8 +150,6 @@ const popupChangeAvatarForm = new PopupWithForm(
   }
 );
 popupChangeAvatarForm.setEventListeners();
-
-// section.createCardFromArray(); Перенесли
 
 // Экземпляр класса FormValidator для формы изменения профиля
 const formPopupRedactionValidator = new FormValidator(
@@ -248,10 +195,6 @@ profileButtonEdit.addEventListener("click", openPopupRedaction);
 
 const popupSureForm = new PopupWithFormDelete(popupSureSelector);
 popupSureForm.setEventListeners();
-// Реализация открытия и закрытия попапа точно удалить
-// deleteElementButton.addEventListener("click", function () {
-//   popupSureForm.open();
-// });
 
 // Реализация открытия и закрытия попапа аватара
 profileAvatarButton.addEventListener("click", function () {

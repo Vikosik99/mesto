@@ -11,24 +11,19 @@ export default class PopupWithFormDelete extends Popup {
     this._functionSubmit = functionSubmit;
   }
 
-  _setEventListeners() {
+  setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener("submit", (event) => {
       event.preventDefault();
-      this._functionSubmit({ card: this._cloneElement, cardId: this._cardId });
+      this._functionSubmit();
       this.close();
     });
   }
-
   close() {
     super.close();
-    // this._form.reset();
   }
 
   open() {
     super.open();
-    // this._form.reset();
-    // this._cloneElement = card;
-    // this._cardId = cardId;
   }
 }
