@@ -26,4 +26,12 @@ export default class UserInfo {
     this._profileUsername.textContent = username;
     this._profileStatus.textContent = status;
   }
+
+  setid(id) {
+    this._id = id;
+  }
+
+  getid() {
+    return this._id;
+  }
 }

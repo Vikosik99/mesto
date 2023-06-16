@@ -30,7 +30,6 @@ export default class PopupWithForm extends Popup {
       event.preventDefault();
       this._formButtonSave.textContent = `${this._formButtonSave.textContent}...`;
       this._colbeckSubmitForm(this._getInputValues());
-      this.close();
     });
   }
 

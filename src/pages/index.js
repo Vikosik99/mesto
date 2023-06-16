@@ -49,8 +49,6 @@ const api = new Api({
   },
 });
 
-const userId = api.getInitialCards();
-
 function createCardServer(element) {
   const card = new Card(
     element,
@@ -111,17 +109,18 @@ const popupRedactionForm = new PopupWithForm(popupRedactionSelector, (data) => {
         avatar: res.avatar,
         username: res.name,
       });
+      popupRedactionForm.close();
     }) // вот сюда получим уже обработанные данные если ошибки нет
     .catch((err) => console.log(`При передачи данных на страницу: ${err}`))
     .finally(() => popupRedactionForm.setDefault());
 });
 popupRedactionForm.setEventListeners();
-
 //Попап добавления карточек
 const popupAddForm = new PopupWithForm(popupAddSelector, (data) => {
-  Promise.all([userId, api.createNewCard(data)])
-    .then(([dataUserServer, dataCardServer]) => {
-      dataCardServer.userid = dataUserServer._id;
+  api
+    .createNewCard(data)
+    .then((dataCardServer) => {
+      dataCardServer.userid = userInfo.getid();
       section.addItemNew(createCardServer(dataCardServer));
       popupAddForm.close();
     })
@@ -142,6 +141,7 @@ const popupChangeAvatarForm = new PopupWithForm(
           avatar: res.avatar,
           username: res.name,
         });
+        popupChangeAvatarForm.close();
       }) // вот сюда получим уже обработанные данные если ошибки нет
       .catch((err) => console.log(`При обновлении аватара: ${err}`))
 
@@ -182,11 +182,6 @@ function openPopupRedaction() {
   popupRedactionForm.open();
 }
 
-//Функция удаления попапа с картинкой
-function closePopupOpenSize() {
-  popupOpenSizeForm.close;
-}
-
 //Реализация добавления обработчиков
 
 profileButtonEdit.addEventListener("click", openPopupRedaction);
@@ -209,14 +204,7 @@ profileButtonPluse.addEventListener("click", function () {
   popupAddForm.open();
 });
 
-popupAddButtonClose.addEventListener("click", function () {
-  popupAddForm.close();
-});
-
-//Реализация закрытия попапа с картинкой
-popupOpenSizeButtonClose.addEventListener("click", closePopupOpenSize);
-
-Promise.all([userId, api.getCards()])
+Promise.all([api.getInitialCards(), api.getCards()])
   .then(([dataUserServer, dataCardServer]) => {
     dataCardServer.forEach((element) => (element.userid = dataUserServer._id)); // Реализация определения id юзера
 
@@ -226,6 +214,7 @@ Promise.all([userId, api.getCards()])
       avatar: dataUserServer.avatar,
       username: dataUserServer.name,
     });
+    userInfo.setid(dataUserServer._id);
     section.createCardFromArray(dataCardServer);
   })
   .catch((err) => console.log(`При переносе данных с сервера: ${err}`));
